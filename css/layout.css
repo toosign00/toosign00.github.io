@@ -1,6 +1,4 @@
 * {
-	 transform: scale(1.2); /* 1.2배로 확대 */
-    transform-origin: 0 0; /* 변환의 기준점 설정, 원점 기준으로 확대 */
     padding: 0;
     margin: 0;
     font-family: 'Noto Sans KR'
