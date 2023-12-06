@@ -1,0 +1,258 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans KR'
+}
+
+h3 {
+    font-size: 500%;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 50px 0 45px;
+    text-align: justify;
+}
+
+.p100 {
+    font-size: 100%;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 50px 50px 0 50px;
+    text-align: justify;
+}
+
+.p100light {
+    font-size: 100%;
+    font-weight: lighter;
+    color: #ffffff;
+    margin: 50px 20px 50px 0;
+    text-align: left;
+}
+
+.p100light2 {
+    font-size: 100%;
+    font-weight: lighter;
+    color: #ffffff;
+    margin: 20px 10px 0 50px;
+    text-align: right;
+}
+
+.p120 {
+    font-size: 120%;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 50px 0 50px;
+    text-align: justify;
+}
+
+.p13pxmargin {
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 20px 50px 0 -50px;
+    text-align: justify;
+}
+
+.pcssimgtext {
+    font-size: 16px;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 25px 50px 0 -50px;
+    text-align: justify;
+}
+
+.p150 {
+    font-size: 150%;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 50px -55px 50px;
+    text-align: justify;
+    text-decoration: none;
+}
+
+.p180 {
+    font-size: 180%;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 0 50px 0 50px;
+    text-align: justify;
+}
+
+.p200 {
+    font-size: 200%;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 50px 0 50px;
+    text-align: justify;
+}
+
+body {
+    background-color: black;
+    width: 100%;
+}
+
+.footer-link {
+    color: white;
+    font-weight: lighter;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu-link {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: yellow;
+}
+
+ul {
+    color: white;
+}
+
+li {
+    color: white;
+    list-style-type: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: black;
+    margin: 50px 0 0 0;
+    padding: 50px 0 0 0;
+    color: black;
+    width: 100%;
+    font-size: 14px;
+    border-top: solid 1px white;
+    height: 100px;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR';
+    margin: -30px 0 50px 0;
+    padding: 50px 0;
+    width: 100%;
+    border-bottom: solid 1px white;
+}
+
+#menu li {
+    margin: 0 15px;
+}
+
+.item {
+    margin: 0 30px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.flex-containercenter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.img {
+    height: auto;
+    margin: 0 10px 0 -15px;
+}
+
+.imgcss {
+    height: auto;
+    margin: 0px 70px 0 50px;
+}
+
+.img2 {
+    height: auto;
+    margin: 30px 10px 0 45px;
+}
+
+.img footer {
+    margin: 0 30px 30px 20px;
+}
+
+.text-next-to-image {
+    color: white;
+    font-size: 16px;
+}
+
+.divimg {
+    width: 500px;
+    height: auto;
+    image-rendering: auto;
+    word-break: break-all;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-container {
+    display: flex;
+    gap: 15px;
+    /* 이미지 사이의 간격 설정 */
+    margin: 10px 0 20px 95px;
+
+}
+
+.icon-container img {
+    width: 35px;
+    height: auto;
+}
+
+.overlay-image-a {
+    position: relative;
+    z-index: 1;
+}
+
+.overlay-image-b {
+    position: absolute;
+    z-index: 2;
+    margin: 0 0 0 -35px;
+    opacity: 0;
+    /* 초기에는 B 이미지를 숨김 */
+}
+
+.icon-container a:hover .overlay-image-a {
+    opacity: 0;
+    /* 호버 시 A 이미지를 투명하게 함 */
+}
+
+.icon-container a:hover .overlay-image-b {
+    opacity: 1;
+    /* 호버 시 B 이미지를 나타나게 함 */
+}
+
+.a100light {
+    font-size: 100%;
+    font-weight: 100;
+    color: #ffffff;
+    margin: 50px 20px 50px 0;
+    text-align: left;
+}
