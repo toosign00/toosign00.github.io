@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link href="./css/layout.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    @media screen and (max-width: 1100px) {
+
+        /* 웹사이트의 해상도가 1100px 이하일 때의 스타일 */
+        #imgcsscon1,
+        #imgcsscon2,
+        #imgcsscon3,
+        #imgcsscon4 {
+            width: 90%;
+            /* 이미지를 부모 요소의 100% 크기로 설정 */
+            height: auto;
+            /* 가로 비율 유지를 위해 높이 자동 조절 */
+            margin: 20px 50px 20px 50px;
+            /* 이미지 간격 조절 */
+        }
+
+        .flex-containerimg {
+            flex-direction: column;
+            /* 이미지를 세로로 배치 */
+            align-items: center;
+            /* 이미지를 가운데 정렬 */
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .imgcsscon1 {
+        height: auto;
+        margin: 40px 70px -40px 50px;
+    }
+    .p100css {
+        font-size: 100%;
+        font-weight: normal;
+        color: #ffffff;
+        margin: 30px 50px 0 50px;
+        text-align: justify;
+    }
+
+    .flex-containerimg {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        /* 가로 중앙 정렬을 추가합니다. */
+    }
+
+    /* li 태그 공통 스타일 */
+    .cssli {
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    /* 연결된 p 태그의 스타일 */
+    .style1 {
+        color: red;
+    }
+
+    .style2 {
+        color: green;
+    }
+
+    .style3 {
+        color: blue;
+    }
+
+    .style4 {
+        color: yellow;
+    }
+
+    .button-container button {
+        cursor: pointer;
+        transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+        border-radius: 10px;
+        /* 원하는 둥근 정도로 조절하세요 */
+        border: none;
+        padding: 10px 10px;
+        margin: 30px 10px 0 0;
+        min-width: 60px;
+        /* 최소 너비 설정 */
+    }
+</style>
+
+<body>
+    <header>
+        <a href="index.html"><img src="./img/logo.png" width="80" style="margin: 20px 0 -70px 30px;">
+            <div>
+                <ul id="menu">
+                    <li class="item"><a href="HTML.html " class="menu-link">HTML</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="CSS.html" class="menu-link">CSS</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Javascript.html" class="menu-link">Javascript</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Python.html" class="menu-link">Python</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Csharp.html" class="menu-link">C#</a></li>
+                </ul>
+            </div>
+    </header>
+    <section>
+        </div>
+        <div class="flex-container">
+            <h3>CSS 씨에스에스</h3>
+        </div>
+        <div class="flex-container">
+            <p class="p180">
+                CSS는 "Cascading Style Sheet"의 약자로 HTML이나 XML과 같은 마크업 언어로 작성된 문서의
+                스타일을 꾸미고 표현하기 위한 스타일 시트 언어입니다. CSS는 웹 페이지의 레이아웃, 색상, 글꼴, 간격 등을 지정하여
+                웹 페이지의 시각적인 모양을 제어하는 데 사용됩니다.
+            </p>
+        </div>
+        <br>
+        <br>
+        <div class="flex-container">
+            <p class="p150" style="margin-bottom: 0;">CSS의 기초 문법</p>
+            <br>
+        </div>
+        <div class="flex-container">
+            <img class="imgcss" src="./img/frame2.png" width="500">
+            <p class="pcssimgtext">
+                CSS의 문법은 선택자(selector)와 선언부(declaratives)로 구성됩니다.<br><br>
+                ① 선택자 - CSS를 적용하고자 하는 HTML 요소(element)<br>
+                ② 선언부 - 하나 이상의 선언들을 세미콜론(;)으로 구분하여 포함할 수 있으며, 중괄호({ })를 사용하여 전체를 둘러쌉니다. <br><br>
+                각 선언은 CSS 속성명(property)과 속성값(value)을 가지며, 그 둘은 콜론(:)으로 연결됩니다.
+                이러한 CSS 선언(declaration)은 언제나 마지막에 세미콜론(;)으로 끝마칩니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150" style="color: yellow; font-size: 180%;">CSS 선언 방식</p>
+            <br>
+        </div>
+        <div class="flex-container">
+            <p class="p100">
+                CSS를 HTML에 적용시키기 위한 방법은 인라인(in-line)방식, 내장(embedded) 방식, 링크(link) 방식,
+                @import 방식으로 크게 네가지가 있습니다. 아래에서 이 네가지 방법들의 CSS 선언 방식을 예시와 함께 알아봅시다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">인라인(in-line)방식</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/in-line.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                HTML 요소(태그)의 style 속성에 직접 작성하는 방식
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">
+                내장(embedded) 방식
+            </p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/embedded.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                HTML &lt;style&gt;&lt;/style&gt; 안에 작성하는 방식
+
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">링크(link) 방식</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/link.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                HTML &lt;link&gt;를 이용하여 외부 문서로 CSS를 불러와 적용하는 방식
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">@import 방식</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/embedded.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                CSS @import를 이용하여 외부 문서로 CSS를 불러와 적용하는 방식
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150" style="color: yellow; font-size: 180%;">CSS 선택자</p>
+            <br>
+        </div>
+        <div class="flex-container">
+            <p class="p100">
+                CSS를 HTML에 적용시키기 위한 방법을 알아봤습니다. 다음으로 선택자에 대해서 알아보겠습니다.
+                선택자란 말 그대로 선택을 해주는 요소입니다.
+                이를 통해 특정 요소들을 선택하여 스타일을 적용할 수 있게 됩니다.
+                CSS에서 스타일이 어떤 방식으로 적용 되는지 몇가지 예시를 들어 알아봅시다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">HTML 요소 선택자</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/htmly.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                CSS를 적용할 대상으로 HTML 요소의 이름을 직접 사용하여 선택할 수 있습니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">아이디(id) 선택자</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/id.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                아이디 선택자는 CSS를 적용할 대상으로 특정 요소를 선택할 때 사용합니다. 이때 #을 써서 구분해 줍니다.<br>
+                <span style="color: yellow;">또한 HTML과 CSS에서는 하나의 웹 페이지에 속하는 여러 요소에 같은 아이디 이름을 사용해도 별 문제없이 동작합니다.
+                    하지만 이렇게 중복된 아이디를 가지고 자바스크립트 작업을 하게 되면 오류가 발생합니다. 따라서 되도록이면
+                    하나의 웹 페이지에 속하는 요소에는 다른 아이디 이름을 사용하거나 클래스를 사용하는 것이 좋습니다.</span>
+
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">클래스(class) 선택자</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/class.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                클래스 선택자는 ​특정 집단의 여러 요소를 한 번에 선택할 때 사용합니다.
+                이러한 특정 집단을 클래스(class)라고 하며, 같은 클래스 이름을 가지는 요소들을 모두 선택해 줍니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">그룹(group) 선택자</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/group.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                그룹 선택자는 위에서 언급한 여러 선택자를 같이 사용하고자 할 때 사용합니다.
+                그룹 선택자는 여러 선택자를 쉼표(,)로 구분하여 연결합니다. 이러한 그룹
+                선택자는 코드를 중복해서 작성하지 않도록 하여 코드를 간결하게 만들어 줍니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p150">전체 선택자</p>
+            <br>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/thewhole.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                전체 선택자는 * 문자를 사용하며 요소 내부의 모든 요소를 선택합니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                마지막으로 스타일 적용 우선순위는 아래와 같습니다.<br><br>
+                인라인 선언 방식<br>
+                아이디 선택자<br>
+                클래스 선택자<br>
+                태그 선택자<br>
+                전체 선택자
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p100css" id="targetParagraph" style="font-size: 40px; font-weight: 900;">
+                오른쪽의 버튼을 눌러보세요. 텍스트의 색상이 바뀝니다.
+            </p>
+            <div class="button-container">
+                <button class="cssli" onclick="changeStyle(this, 'style1')">RED</button>
+                <button class="cssli" onclick="changeStyle(this, 'style2')">GREEN</button>
+                <button class="cssli" onclick="changeStyle(this, 'style3')">BLUE</button>
+                <button class="cssli" onclick="changeStyle(this, 'style4')">YELLOW</button>
+            </div>
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                왜 버튼을 누르면 텍스트에 색깔이 바뀔까요?
+                그 이유는 각 버튼별로 불러오는 CSS를 다르게 설정했기 때문입니다.
+                예시로 'RED'버튼의 CSS 스타일을 살펴보겠습니다.
+            </p>
+        </div>
+        <div class="flex-containerimg">
+            <img class="imgcsscon1" src="./img/libutton.png" width="1305">
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                'RED' CSS 스타일은 클래스(class) 선택자를 이용하여 CSS 스타일을 불러옵니다.
+                그리고 color: red;를 사용하여 텍스트의 색상을 빨간색으로 적용합니다.
+            </p>
+        </div>
+        <div class="flex-container">
+            <p class="p100css">
+                이처럼 CSS는 폰트, 색깔, 구조 등 다양한 구성을 적용시켜 웹사이트의 시각적인 부분을 꾸미는 역할을 합니다.
+                다양한 CSS 스타일을 활용하여 당신의 웹사이트를 꾸며보세요!
+            </p>
+        </div>
+    </section>
+    <footer>
+        <div class="flex-container">
+        <img src="./img/me.png" width="100" style="margin: 0 20px 20px 0;">
+        <p class="p100light">
+            노현수<br>
+            <a href="https://www.kaywon.ac.kr/CmsHome/MainDefault.aspx" class="footer-link" target="_blank">
+                16038 66, Gyewondaehak-ro, Uiwang-si, Gyeonggi-do, Republic of Korea<br>
+                Department of Digital Media Design at Kaywon University of Art & Design<br><br>
+            </a>
+            Hello, my name is Hyunsoo Ro. I am interested in design and development. My goal is to become a front-end
+            developer after graduation.
+        </p>
+        <div class="social-icons">
+            <p class="p100light2">
+                ⓒ2023 Hyunsoo. All rights reserved.<br>
+                E-mail : <a href="mailto:toosign22361041@kaywon.ac.kr" class="footer-link"
+                    target="_blank">toosign22361041@kawon.ac.kr</a><br>
+                Please contact use by email
+            </p>
+            <div class="icon-container">
+                <a href="https://www.behance.net/toogisn" target="_blank">
+                    <img class="overlay-image-a" src="./img/behance.png" width="35" alt="Behance">
+                    <img class="overlay-image-b" src="./img/behancehover.png" width="35" alt="Behance">
+                </a>
+                <a href="https://github.com/toosign00" target="_blank">
+                    <img class="overlay-image-a" src="./img/github.png" width="35" alt="GitHub">
+                    <img class="overlay-image-b" src="./img/githubhover.png" width="35" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/too_sign/" target="_blank">
+                    <img class="overlay-image-a" src="./img/instagram.png" width="35" alt="Instagram">
+                    <img class="overlay-image-b" src="./img/instagramhover.png" width="35" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script>
+        function changeStyle(element, styleClass) {
+            // 현재 선택된 li 태그의 인덱스를 찾음
+            var selectedIdx = Array.from(element.parentNode.children).indexOf(element) + 1;
+
+            // 모든 p 태그의 스타일 클래스를 제거
+            document.getElementById('targetParagraph').classList.remove('style1', 'style2', 'style3', 'style4');
+
+            // 클릭된 li 태그에 해당하는 스타일 클래스를 추가
+            document.getElementById('targetParagraph').classList.add('style' + selectedIdx);
+
+            // 모든 li 태그의 selected 클래스를 제거
+            Array.from(element.parentNode.children).forEach(function (li) {
+                li.classList.remove('selected');
+            });
+
+            // 클릭된 li 태그에 selected 클래스를 추가
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+
+</html>
