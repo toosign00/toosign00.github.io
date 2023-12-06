@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX</title>
+    <link href="./css/layout.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .moving-text h3 {
+            color: white;
+            padding: 10px;
+        }
+
+        @keyframes moveRight1 {
+            from {
+                transform: translateX(-60%);
+            }
+
+            to {
+                transform: translateX(150%);
+            }
+        }
+
+        @keyframes moveLeft1 {
+            from {
+                transform: translateX(160%);
+            }
+
+            to {
+                transform: translateX(-150%);
+            }
+        }
+
+        @keyframes moveRight2 {
+            from {
+                transform: translateX(-80%);
+            }
+
+            to {
+                transform: translateX(120%);
+            }
+        }
+
+        @keyframes moveLeft2 {
+            from {
+                transform: translateX(130%);
+            }
+
+            to {
+                transform: translateX(-120%);
+            }
+        }
+
+        @keyframes moveRight3 {
+            from {
+                transform: translateX(-45%);
+            }
+
+            to {
+                transform: translateX(180%);
+            }
+        }
+
+        @keyframes moveLeft3 {
+            from {
+                transform: translateX(150%);
+            }
+
+            to {
+                transform: translateX(-180%);
+            }
+        }
+
+        .moving-text-right {
+            position: relative;
+            animation: moveRight1 7s ease-in-out infinite;
+        }
+
+        .moving-text-left {
+            animation: moveLeft1 6s ease-in-out infinite;
+        }
+
+        .moving-text-right2 {
+            position: relative;
+            animation: moveRight2 5s ease-in-out infinite;
+        }
+
+        .moving-text-left2 {
+            animation: moveLeft2 8s ease-in-out infinite;
+        }
+
+        .moving-text-right3 {
+            position: relative;
+            animation: moveRight3 7.5s ease-in-out infinite;
+        }
+
+        .moving-text-left3 {
+            animation: moveLeft3 7s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="./img/logo.png" width="80" style="margin: 20px 0 -70px 30px;">
+            <div>
+                <ul id="menu">
+                    <li class="item"><a href="HTML.html " class="menu-link">HTML</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="CSS.html" class="menu-link">CSS</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Javascript.html" class="menu-link">Javascript</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Python.html" class="menu-link">Python</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Csharp.html" class="menu-link">C#</a></li>
+                </ul>
+    </header>
+    <section>
+        <div class="moving-text-right">
+            <h3>HTML 에이치티엠엘</h3>
+        </div>
+        <div class="moving-text-left">
+            <h3>CSS 씨에스에스</h3>
+        </div>
+        <div class="moving-text-right2">
+            <h3>Javascript 자바스크립트</h3>
+        </div>
+        <div class="moving-text-left2">
+            <h3>Python 파이썬</h3>
+        </div>
+        <div class="moving-text-right3">
+            <h3>C# 씨샵</h3>
+        </div>
+    </section>
+    <footer>
+        <img src="./img/me.png" width="100" style="margin: 0 20px 20px 0;">
+        <p class="p100light">
+            노현수<br>
+            <a href="https://www.kaywon.ac.kr/CmsHome/MainDefault.aspx" class="footer-link" target="_blank">
+                16038 66, Gyewondaehak-ro, Uiwang-si, Gyeonggi-do, Republic of Korea<br>
+                Department of Digital Media Design at Kaywon University of Art & Design<br><br>
+            </a>
+            Hello, my name is Hyunsoo Ro. I am interested in design and development. My goal is to become a front-end
+            developer after graduation.
+        </p>
+        <div class="social-icons">
+            <p class="p100light2">
+                ⓒ2023 Hyunsoo. All rights reserved.<br>
+                E-mail : <a href="mailto:toosign22361041@kaywon.ac.kr" class="footer-link"
+                    target="_blank">toosign22361041@kawon.ac.kr</a><br>
+                Please contact use by email
+            </p>
+            <div class="icon-container">
+                <a href="https://www.behance.net/toogisn" target="_blank">
+                    <img class="overlay-image-a" src="./img/behance.png" width="35" alt="Behance">
+                    <img class="overlay-image-b" src="./img/behancehover.png" width="35" alt="Behance">
+                </a>
+                <a href="https://github.com/toosign00" target="_blank">
+                    <img class="overlay-image-a" src="./img/github.png" width="35" alt="GitHub">
+                    <img class="overlay-image-b" src="./img/githubhover.png" width="35" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/too_sign/" target="_blank">
+                    <img class="overlay-image-a" src="./img/instagram.png" width="35" alt="Instagram">
+                    <img class="overlay-image-b" src="./img/instagramhover.png" width="35" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

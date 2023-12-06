@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#</title>
+    <link href="./css/layout.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    @media screen and (max-width: 1100px) {
+
+        /* 웹사이트의 해상도가 1100px 이하일 때의 스타일 */
+        #imgcsscon1,
+        #imgcsscon2,
+        #imgcsscon3,
+        #imgcsscon4 {
+            width: 90%;
+            /* 이미지를 부모 요소의 100% 크기로 설정 */
+            height: auto;
+            /* 가로 비율 유지를 위해 높이 자동 조절 */
+            margin: 20px 50px 20px 50px;
+            /* 이미지 간격 조절 */
+        }
+
+        .flex-containerimg {
+            flex-direction: column;
+            /* 이미지를 세로로 배치 */
+            align-items: center;
+            /* 이미지를 가운데 정렬 */
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    #imgcsscon1 {
+        height: auto;
+        margin: 40px 70px -40px 50px;
+    }
+
+    #imgcsscon2 {
+        height: auto;
+        margin: 40px 70px -40px 50px;
+    }
+
+    #imgcsscon3 {
+        height: auto;
+        margin: 40px 70px -40px 50px;
+    }
+
+    #imgcsscon4 {
+        height: auto;
+        margin: 40px 70px -40px 50px;
+    }
+
+    .p100css {
+        font-size: 100%;
+        font-weight: normal;
+        color: #ffffff;
+        margin: 30px 50px 0 50px;
+        text-align: justify;
+    }
+
+    .flex-containerimg {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        justify-content: center;
+        /* 가로 중앙 정렬을 추가합니다. */
+    }
+
+    /* li 태그 공통 스타일 */
+    .cssli {
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    /* 연결된 p 태그의 스타일 */
+    .style1 {
+        color: red;
+    }
+
+    .style2 {
+        color: green;
+    }
+
+    .style3 {
+        color: blue;
+    }
+
+    .style4 {
+        color: yellow;
+    }
+
+    .button-container button {
+        cursor: pointer;
+        transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+        border-radius: 10px;
+        /* 원하는 둥근 정도로 조절하세요 */
+        border: none;
+        padding: 10px 10px;
+        margin: 30px 10px 0 0;
+        min-width: 60px;
+        /* 최소 너비 설정 */
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        position: relative;
+        width: 120px;
+        height: auto;
+        margin: 20px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        /* box-shadow에도 트랜지션을 추가합니다. */
+        border-radius: 11px;
+        /* 카드의 모서리를 둥글게 조절합니다. */
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .card-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 2px;
+        /* 카드 정보의 패딩을 더 작은 값으로 조절합니다. */
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+    }
+
+    .card-info h4 {
+        font-size: 14px;
+        /* 카드 정보의 제목 폰트 크기를 조절합니다. */
+        margin-bottom: 5px;
+        /* 제목과 내용 사이의 간격을 조절합니다. */
+    }
+
+    .card-info p {
+        font-size: 10px;
+        /* 카드 정보의 내용 폰트 크기를 조절합니다. */
+        margin: 0;
+        /* 기본 마진을 제거합니다. */
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card:hover .card-info {
+        transform: translateY(0);
+    }
+
+    .p200py {
+        font-size: 30px;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 0 50px 0 50px;
+        text-align: justify;
+    }
+
+    .p100py {
+        font-size: 20px;
+        font-weight: normal;
+        color: #ffffff;
+        margin: 30px 200px 0 200px;
+        text-align: justify
+    }
+
+    .p16py {
+        font-size: 25px;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 0 50px 0 50px;
+        text-align: justify;
+    }
+
+    .p150sha {
+        font-size: 150%;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 0 255px -100px 255px;
+        text-align: justify;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="index.html"><img src="./img/logo.png" width="80" style="margin: 20px 0 -70px 30px;">
+            <div>
+                <ul id="menu">
+                    <li class="item"><a href="HTML.html " class="menu-link">HTML</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="CSS.html" class="menu-link">CSS</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Javascript.html" class="menu-link">Javascript</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Python.html" class="menu-link">Python</a></li>
+                    <li class="item">|</li>
+                    <li class="item"><a href="Csharp.html" class="menu-link">C#</a></li>
+                </ul>
+    </header>
+    <section>
+        </div>
+        <div class="flex-container">
+            <h3>C# 씨샤프</h3>
+        </div>
+        <div class="flex-container">
+            <p class="p180">
+                C# (C Sharp)은 Microsoft에서 개발한 객체지향 프로그래밍 언어입니다.
+                C#은 주로 Microsoft의 .NET 프레임워크에서 사용되며, Windows 기반
+                애플리케이션 개발, 웹 개발, 게임 개발 등 다양한 분야에서 활용됩니다.
+            </p>
+        </div>
+        <br>
+        <br>
+        <div class="flex-containercenter">
+            <p class="p200py" style="margin-bottom: 0; color: yellow;">C#의 특징</p>
+            <br>
+        </div>
+        <div class="flex-containercenter">
+            <p class="p100py">
+                1. 객체지향 프로그래밍 (OOP): C#은 객체지향 프로그래밍의 주요 특징을 지원합니다. 클래스, 상속, 다형성, 캡슐화 등의 개념을 활용하여 모듈화되고 유지보수가 용이한 코드를 작성할
+                수 있습니다.<br><br>
+                2. 타입 안전성: C#은 정적 타입 언어로, 컴파일 시에 변수의 타입을 확인하여 타입 안전성을 보장합니다. 이는 런타임 오류를 줄여 안정적인 코드를 작성할 수 있도록
+                도와줍니다.<br><br>
+                3.이벤트 기반 프로그래밍: C#은 이벤트 기반 프로그래밍을 지원하여 GUI 응용 프로그램 및 비동기 작업을 쉽게 처리할 수 있습니다.<br><br>
+                4. 풍부한 라이브러리 및 프레임워크 지원: C#은 .NET 프레임워크를 기반으로 하며, 다양한 라이브러리와 프레임워크를 활용할 수 있습니다. ASP.NET을 사용하여 웹 애플리케이션을
+                개발하거나,
+                WPF<br><br>
+                5. 및 UWP를 사용하여 데스크톱 애플리케이션을 개발할 수 있습니다.<br><br>
+                6. LINQ (Language Integrated Query): C#은 LINQ를 통해 데이터베이스와 같은 다양한 데이터 소스에 쿼리를 수행하는 편리한 기능을 제공합니다.<br><br>
+                7. 풍부한 개발 환경: Visual Studio와 같은 강력한 통합 개발 환경(IDE)을 사용하여 C# 코드를 작성하고 디버깅할 수 있습니다.
+            </p>
+        </div>
+        <div class="flex-containercenter">
+            <p class="p200py" style="margin-bottom: 0; color: yellow;">C#으로 무엇을 할 수 있을까?</p>
+            <br>
+        </div>
+        <div class="flex-containercenter">
+            <p class="p100py">
+                C#은 다양한 종류의 애플리케이션 및 프로젝트를 개발하는 데 사용됩니다.
+                Windows 데스크톱 애플리케이션, 게임 개발, 웹 애플리케이션, 서버 애플리케이션 등 다양한 분야에서 사용합니다.
+                C#은 다양한 분야에서 안정적이고 강력한 프로그래밍 언어로 평가받고 있습니다. 아래에서는 다양한 분야 중 Unity로
+                만든 게임 몇가지를 살펴보겠습니다.
+            </p>
+        </div>
+        <div class="flex-containercenter">
+            <p class="p16py" style="margin-bottom: 0;">Unity로 만든 게임 소개</p>
+            <br>
+        </div>
+        <div class="flex-container">
+            <p class="p150sha">
+                Hollow Knight
+            </p>
+            <p class="p150sha">
+                CrossCode
+            </p>
+            <br>
+        </div>
+        <div class="flex-containercenter">
+            <video class="imgcsscon1" width="600" controls style="margin-right: 50px; margin-top: 50px;">
+                <!-- 비디오 파일의 경로를 src 속성에 지정합니다. -->
+                <source src="./img/Hollow Knight1.mp4" type="video/mp4">
+                <!-- 브라우저가 지원하지 않는 경우를 대비한 대체 텍스트 또는 링크를 제공할 수 있습니다. -->
+                Your browser does not support the video tag.
+            </video>
+            <video class="imgcsscon1" width="600" controls style="margin-right: 50px; margin-top: 50px;">
+                <!-- 비디오 파일의 경로를 src 속성에 지정합니다. -->
+                <source src="./img/CrossCode1.mp4" type="video/mp4">
+                <!-- 브라우저가 지원하지 않는 경우를 대비한 대체 텍스트 또는 링크를 제공할 수 있습니다. -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="flex-containercenter">
+            <p class="p16py" style="margin-bottom: 0;">내가 만든 유니티 작품</p>
+            <br>
+        </div>
+        <div class="flex-containercenter">
+            <video class="imgcsscon1" width="900" controls>
+                <!-- 비디오 파일의 경로를 src 속성에 지정합니다. -->
+                <source src="./img/newjeans.mp4" type="video/mp4">
+                <!-- 브라우저가 지원하지 않는 경우를 대비한 대체 텍스트 또는 링크를 제공할 수 있습니다. -->
+                Your browser does not support the video tag.
+            </video>
+    </section>
+    <footer>
+        <img src="./img/me.png" width="100" style="margin: 0 20px 20px 0;">
+        <p class="p100light">
+            노현수<br>
+            <a href="https://www.kaywon.ac.kr/CmsHome/MainDefault.aspx" class="footer-link" target="_blank">
+                16038 66, Gyewondaehak-ro, Uiwang-si, Gyeonggi-do, Republic of Korea<br>
+                Department of Digital Media Design at Kaywon University of Art & Design<br><br>
+            </a>
+            Hello, my name is Hyunsoo Ro. I am interested in design and development. My goal is to become a front-end
+            developer after graduation.
+        </p>
+        <div class="social-icons">
+            <p class="p100light2">
+                ⓒ2023 Hyunsoo. All rights reserved.<br>
+                E-mail : <a href="mailto:toosign22361041@kaywon.ac.kr" class="footer-link"
+                    target="_blank">toosign22361041@kawon.ac.kr</a><br>
+                Please contact use by email
+            </p>
+            <div class="icon-container">
+                <a href="https://www.behance.net/toogisn" target="_blank">
+                    <img class="overlay-image-a" src="./img/behance.png" width="35" alt="Behance">
+                    <img class="overlay-image-b" src="./img/behancehover.png" width="35" alt="Behance">
+                </a>
+                <a href="https://github.com/toosign00" target="_blank">
+                    <img class="overlay-image-a" src="./img/github.png" width="35" alt="GitHub">
+                    <img class="overlay-image-b" src="./img/githubhover.png" width="35" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/too_sign/" target="_blank">
+                    <img class="overlay-image-a" src="./img/instagram.png" width="35" alt="Instagram">
+                    <img class="overlay-image-b" src="./img/instagramhover.png" width="35" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
