@@ -8,7 +8,7 @@ order: 4
 {: .prompt-tip } -->
 <style>
 .paragraph {
-    line-height: 0.95;
+    line-height: 1.1;
 }
 </style>
 

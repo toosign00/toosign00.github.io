@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>노현수</title>
   <subtitle>안녕하세요. 항상 발전하기 위해 노력하는 프론트엔드 개발자 노현수입니다.</subtitle>
-  <updated>2024-10-05T05:35:12+09:00</updated>
+  <updated>2024-10-05T07:06:06+09:00</updated>
   <author>
     <name>hyunsoo Ro</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,38 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>지킬 테마를 이용하여 Github 블로그 만들기</title>
+    <link href="http://localhost:4000/posts/%EC%A7%80%ED%82%AC-%ED%85%8C%EB%A7%88%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="지킬 테마를 이용하여 Github 블로그 만들기" />
+    <published>2024-10-05T06:33:00+09:00</published>
+  
+    <updated>2024-10-05T06:33:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/%EC%A7%80%ED%82%AC-%ED%85%8C%EB%A7%88%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/</id>
+    <content src="http://localhost:4000/posts/%EC%A7%80%ED%82%AC-%ED%85%8C%EB%A7%88%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" />
+    <author>
+      <name>toosign</name>
+    </author>
+
+  
+    
+    <category term="블로그" />
+    
+  
+
+  <summary>지킬 테마를 이용하여 Github 블로그를 만들어보자
+jekyll-theme-chirpy를 이용해 GitHub 블로그를 만들어 보았다.
+블로그를 만들기 전에는 여러 가지 어려움이 많았다. Ruby 설치부터 터미널 설정까지, 이외에도 정말 많은 자잘한 오류들이 발생했다. 하루 종일 붙잡고 고생한 끝에 드디어 완성할 수 있었다.
+오늘은 간단하게만 작성하고, 추후 지킬 테마를 적용한 과정들을 추가해서 작성해 볼까 한다.
+
+댓글 기능 추가
+블로그를 만들고 또 뭐를 할 수 있나 찾아봤는데 댓글 기능을 추가할 수 있다더라.
+그래서 블로그의 댓글 플랫폼을 찾아보다 disqus를 찾게 되었다. 구글링해서 찾아보니 방법은 크게 어렵지 않아 금방 댓글 기능을 추가할 수 있었다.
+아.. 근데 적용시키고 보니 일단 안 예쁘...</summary>
+
+  </entry>
 
 </feed>
 
