@@ -1,9 +1,9 @@
 
 
 {
-  "name": "Chirpy",
-  "short_name": "Chirpy",
-  "description": "A minimal, responsive and feature-rich Jekyll theme for technical writing.",
+  "name": "노현수",
+  "short_name": "노현수",
+  "description": "안녕하세요. 항상 발전하기 위해 노력하는 프론트엔드 개발자 노현수입니다.",
   "icons": [
     {
       "src": "/assets/img/favicons/android-chrome-192x192.png",
