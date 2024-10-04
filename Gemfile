@@ -1,10 +1,8 @@
 # frozen_string_literal: true
-
 source "https://rubygems.org"
 
 gem "jekyll-theme-chirpy", "~> 7.1", ">= 7.1.1"
-
-gem "html-proofer", "~> 5.0", group: :test
+gem "html-proofer", "~> 3.19.0", group: :test  # 버전을 3.19.0으로 변경
 
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"
