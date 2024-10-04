@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>노현수</title>
   <subtitle>안녕하세요. 항상 발전하기 위해 노력하는 프론트엔드 개발자 노현수입니다.</subtitle>
-  <updated>2024-10-05T07:06:06+09:00</updated>
+  <updated>2024-10-05T07:10:36+09:00</updated>
   <author>
     <name>hyunsoo Ro</name>
     <uri>http://localhost:4000/</uri>
@@ -29,7 +29,7 @@
     <id>http://localhost:4000/posts/%EC%A7%80%ED%82%AC-%ED%85%8C%EB%A7%88%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/</id>
     <content src="http://localhost:4000/posts/%EC%A7%80%ED%82%AC-%ED%85%8C%EB%A7%88%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" />
     <author>
-      <name>toosign</name>
+      <name>hyunsoo Ro</name>
     </author>
 
   
