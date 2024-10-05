@@ -41,7 +41,7 @@ order: 4
 
 #### 🎨 포트폴리오
 
-<p class="paragraph"><a href="https://toosign00.github.io/typography/">타이포그래피 소개 웹사이트</a></p>
-<p class="paragraph"><a href="https://toosign00.github.io/OLLY/">커뮤니케이션디자인국제공모전 공모작</a></p>
-<p class="paragraph"><a href="https://toosign00.github.io/minigame/">자바스크립트를 활용한 미니게임</a></p>
-<p class="paragraph"><a href="https://toosign00.github.io/film_magazine/">필름 매거진 웹사이트</a></p>
+<p class="paragraph"><a href="https://toosign00.github.io/typography/" target = "blank">타이포그래피 소개 웹사이트</a></p>
+<p class="paragraph"><a href="https://toosign00.github.io/OLLY/" target = "blank">커뮤니케이션디자인국제공모전 공모작</a></p>
+<p class="paragraph"><a href="https://toosign00.github.io/minigame/" target = "blank">자바스크립트를 활용한 미니게임</a></p>
+<p class="paragraph"><a href="https://toosign00.github.io/film_magazine/" target = "blank">필름 매거진 웹사이트</a></p>
