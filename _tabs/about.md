@@ -135,7 +135,7 @@ toc: true
 
 ### **📁 포트폴리오**
 
-#### [타이포그래피 소개 웹사이트](https://toosign00.github.io/typography/)
+#### <a href="https://toosign00.github.io/typography/" target="_blank" rel="noopener noreferrer">타이포그래피 소개 웹사이트</a>
 
 <div class="slider-container" id="slider1">
   <div class="slides">
@@ -151,7 +151,7 @@ toc: true
   <div class="dots"></div>
 </div>
 
-#### [커뮤니케이션디자인국제공모전 공모작](https://toosign00.github.io/OLLY/)
+#### <a href="https://toosign00.github.io/OLLY/" target="_blank" rel="noopener noreferrer">커뮤니케이션디자인국제공모전 공모작</a>
 
 <div class="slider-container" id="slider2">
   <div class="slides">
@@ -166,7 +166,7 @@ toc: true
   <div class="dots"></div>
 </div>
 
-#### [자바스크립트를 활용한 미니게임](https://toosign00.github.io/minigame/)
+#### <a href="https://toosign00.github.io/minigame/" target="_blank" rel="noopener noreferrer">자바스크립트를 활용한 미니게임</a>
 
 <div class="slider-container" id="slider3">
   <div class="slides">
@@ -180,7 +180,7 @@ toc: true
   <div class="dots"></div>
 </div>
 
-#### [필름 매거진 웹사이트](https://toosign00.github.io/OLLY/)
+#### <a href="https://toosign00.github.io/film_magazine/" target="_blank" rel="noopener noreferrer">필름 매거진 웹사이트</a>
 
 <div class="slider-container" id="slider4">
   <div class="slides">
