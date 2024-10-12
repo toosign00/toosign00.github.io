@@ -139,14 +139,14 @@ toc: true
 
 <div class="slider-container" id="slider1">
   <div class="slides">
-    <div class="slide"><img src="../assets/img/typo_main_page.png" alt="Image 1" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_main_page_dark.png" alt="Image 2" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page1.png" alt="Image 3" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page2.png" alt="Image 4" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page3.png" alt="Image 5" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page4_1.png" alt="Image 6" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page4_2.png" alt="Image 7" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/typo_page5.png" alt="Image 8" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_main_page.webp" alt="Image 1" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_main_page_dark.webp" alt="Image 2" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page1.webp" alt="Image 3" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page2.webp" alt="Image 4" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page3.webp" alt="Image 5" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page4_1.webp" alt="Image 6" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page4_2.webp" alt="Image 7" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/typo_page5.webp" alt="Image 8" loading="eager"></div>
   </div>
   <div class="dots"></div>
 </div>
@@ -155,13 +155,13 @@ toc: true
 
 <div class="slider-container" id="slider2">
   <div class="slides">
-    <div class="slide"><img src="../assets/img/olly_main.png" alt="Image 1" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/olly_2.png" alt="Image 2" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/olly_3.png" alt="Image 3" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/olly_4.png" alt="Image 4" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/olly_5.png" alt="Image 5" loading="eager"></div>
-     <div class="slide"><img src="../assets/img/olly_6.png" alt="Image 6" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/olly_7.png" alt="Image 7" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_main.webp" alt="Image 1" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_2.webp" alt="Image 2" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_3.webp" alt="Image 3" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_4.webp" alt="Image 4" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_5.webp" alt="Image 5" loading="eager"></div>
+     <div class="slide"><img src="../assets/img/olly_6.webp" alt="Image 6" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/olly_7.webp" alt="Image 7" loading="eager"></div>
   </div>
   <div class="dots"></div>
 </div>
@@ -170,12 +170,12 @@ toc: true
 
 <div class="slider-container" id="slider3">
   <div class="slides">
-    <div class="slide"><img src="../assets/img/minigame_main.png" alt="Image 1" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/minigame_2.png" alt="Image 2" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/minigame_3.png" alt="Image 3" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/minigame_4.png" alt="Image 4" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/minigame_5.png" alt="Image 5" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/minigame_6.png" alt="Image 6" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_main.webp" alt="Image 1" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_2.webp" alt="Image 2" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_3.webp" alt="Image 3" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_4.webp" alt="Image 4" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_5.webp" alt="Image 5" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/minigame_6.webp" alt="Image 6" loading="eager"></div>
   </div>
   <div class="dots"></div>
 </div>
@@ -184,12 +184,12 @@ toc: true
 
 <div class="slider-container" id="slider4">
   <div class="slides">
-    <div class="slide"><img src="../assets/img/film_magazine_main.png" alt="Image 1" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_page2.png" alt="Image 2" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_page3_1.png" alt="Image 3" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_page3_2.png" alt="Image 4" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_page4.png" alt="Image 5" loading="eager"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_page5.png" alt="Image 6" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_main.webp" alt="Image 1" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page2.webp" alt="Image 2" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page3_1.webp" alt="Image 3" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page3_2.webp" alt="Image 4" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page4.webp" alt="Image 5" loading="eager"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page5.webp" alt="Image 6" loading="eager"></div>
   </div>
   <div class="dots"></div>
 </div>
