@@ -188,7 +188,7 @@ toc: true
 <div class="slider-container" id="slider4">
   <div class="slides">
     <div class="slide"><img src="../assets/img/film_magazine_main.png" alt="Image 1"></div>
-    <div class="slide"><img src="../assets/img/film_magazine_2.png" alt="Image 2"></div>
+    <div class="slide"><img src="../assets/img/film_magazine_page2.png" alt="Image 2"></div>
     <div class="slide"><img src="../assets/img/film_magazine_page3_1.png" alt="Image 3"></div>
     <div class="slide"><img src="../assets/img/film_magazine_page3_2.png" alt="Image 4"></div>
     <div class="slide"><img src="../assets/img/film_magazine_page4.png" alt="Image 5"></div>
