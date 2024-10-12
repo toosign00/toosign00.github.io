@@ -4,8 +4,6 @@ icon: fas fa-info-circle
 order: 4
 layout: post
 toc: true
-categories: [포트폴리오]
-tags: [포트폴리오, html, css, js, node.js, git]
 ---
 
 <style>
