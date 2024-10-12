@@ -38,17 +38,17 @@ toc: true
 }
 
 .dot {
-  height: 13px !important;
-  width: 13px !important;
-  margin: 0 5px !important;
-  background-color: #bbb !important;
-  border-radius: 50% !important;
-  display: inline-block !important;
-  cursor: pointer !important;
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .dot.active {
-  background-color: #717171 !important;
+  background-color: #717171;
 }
 
 .paragraph {
