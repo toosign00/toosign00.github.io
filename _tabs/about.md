@@ -122,7 +122,7 @@ toc: true
     -  `branch`와 `merge`를 사용하여 팀원들과의 협업 시 다양한 브랜치 전략(`Git flow, Trunk-based`)을 적용하고 있습니다. 
 - <img alt="GitHub" height="23px" class="badge" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white">
     -  `Github`를 사용하여 원격 저장소를 관리하고, 이를 통해 팀원들과의 협업을 효과적으로 수행할 수 있습니다. 
-    -  코드 형상 관리를 체계적으로 수행하고, `Pull Request(PR)`를 활용한 코드 리뷰 경험이 있습니다.
+    -  코드 형상 관리 경험과 `Pull Request(PR)`를 통한 코드 리뷰 경험이 있습니다.
     -  `GitHub` 조직 관리 경험이 있으며, `Pull Request(PR)` 관리, `branch` 보호 규칙 설정 등을 통해 팀 협업 프로세스를 최적화하고 효율적인 역할 분담을 구현했습니다.
     
 
