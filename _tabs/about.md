@@ -115,14 +115,15 @@ toc: true
     - `npm`을 사용하여 외부 라이브러리를 관리하고, 모듈화된 코드를 작성할 수 있으며, `fs`(파일 시스템 모듈)를 이용해 서버 내 파일을 처리하는 간단한 작업을 구현할 수 있습니다.
     - `Node.js` 환경에서 `MongoDB`를 활용해 `NoSQL` 데이터베이스와 연동할 수 있습니다.
 
-#### 버전 관리
+#### 버전 관리 및 협업
 
 - <img alt="Git" height="23px" class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white">
     - `Git`을 사용하여 로컬과 원격 저장소 간의 작업 흐름을 이해하고, 이를 통해 효과적으로 버전 관리를 수행할 수 있습니다. 
     -  `branch`와 `merge`를 사용하여 팀원들과의 협업 시 다양한 브랜치 전략(`Git flow, Trunk-based`)을 적용하고 있습니다. 
 - <img alt="GitHub" height="23px" class="badge" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white">
     -  `Github`를 사용하여 원격 저장소를 관리하고, 이를 통해 팀원들과의 협업을 효과적으로 수행할 수 있습니다. 
-    -  `Git`을 활용한 코드 형상관리와 코드 리뷰 경험이 있습니다.
+    -  코드 형상 관리를 체계적으로 수행하고, `Pull Request(PR)`를 활용한 코드 리뷰 경험이 있습니다.
+    -  `GitHub` 조직 관리 경험이 있으며, `Pull Request(PR)` 관리, `branch` 보호 규칙 설정 등을 통해 팀 협업 프로세스를 최적화하고 효율적인 역할 분담을 구현했습니다.
     
 
 ### **🎨 디자인**
