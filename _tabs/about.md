@@ -67,7 +67,7 @@ toc: true
 
 ### **🙋 Who I Am**
 
-안녕하세요. 항상 발전하기 위해 노력하는 프론트엔드 개발자 노현수입니다.  
+안녕하세요. 꾸준히 성장하는 프론트엔드 개발자 노현수입니다.  
 저는 꾸준히 개발 기술을 공부하며, 끊임없이 성장하는 개발자가 되기 위해 노력하고 있습니다.  
 또한, 소통을 중시하고 팀원들과의 협력을 통해 더 나은 결과물을 만들어내는 과정에서 큰 성취감을 느낍니다.  
 성실함을 바탕으로 지속적인 성장을 목표로 삼고 있습니다.  
@@ -118,11 +118,12 @@ toc: true
 #### 버전 관리
 
 - <img alt="Git" height="23px" class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white">
-    - `Git`을 사용하여 로컬과 원격 저장소 간의 작업 흐름을 이해하고, 이를 통해 효과적으로 버전 관리를 수행할 수 있습니다.
-    -  `branch`와 `merge`를 사용하여 팀원들과의 협업 시 다양한 브랜치 전략(`Git flow, Trunk-based`)을 적용하고 있습니다.
+    - `Git`을 사용하여 로컬과 원격 저장소 간의 작업 흐름을 이해하고, 이를 통해 효과적으로 버전 관리를 수행할 수 있습니다. 
+    -  `branch`와 `merge`를 사용하여 팀원들과의 협업 시 다양한 브랜치 전략(`Git flow, Trunk-based`)을 적용하고 있습니다. 
 - <img alt="GitHub" height="23px" class="badge" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white">
     -  `Github`를 사용하여 원격 저장소를 관리하고, 이를 통해 팀원들과의 협업을 효과적으로 수행할 수 있습니다. 
-
+    -  `Git`을 활용한 코드 형상관리와 코드 리뷰 경험이 있습니다.
+    
 
 ### **🎨 디자인**
 
