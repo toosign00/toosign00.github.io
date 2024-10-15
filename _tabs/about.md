@@ -62,15 +62,28 @@ toc: true
 2000.11.07  
 +8210-8514-8477  
 [kevinsoo1014@gmail.com](mailto:kevinsoo1014@gmail.com)  
+[Github](https://github.com/toosign00)  
 계원예술대학교 디지털미디어디자인과 프로그래밍 세부 전공  
 
 
-### **🙋 Who I Am**
+### **🙋 About Me**
 
-안녕하세요. 꾸준히 성장하는 프론트엔드 개발자 노현수입니다.  
-저는 꾸준히 개발 기술을 공부하며, 끊임없이 성장하는 개발자가 되기 위해 노력하고 있습니다.  
-또한, 소통을 중시하고 팀원들과의 협력을 통해 더 나은 결과물을 만들어내는 과정에서 큰 성취감을 느낍니다.  
-성실함을 바탕으로 지속적인 성장을 목표로 삼고 있습니다.  
+#### **Introduce**
+안녕하세요. 문제 해결을 통해 성장하는 프론트엔드 개발자 노현수입니다.  
+저는 최신 기술을 꾸준히 학습하며, 도전적인 과제를 해결하는 과정에서 즐거움을 찾고 있습니다.  
+원활한 소통과 협업을 통해 팀과 함께 시너지를 내며, 더욱 완성도 높은 결과물을 만들어내는 데 집중합니다.  
+항상 발전을 지향하며, 성실함과 열정을 바탕으로 한 단계씩 성장해 나가고 있습니다.  
+
+
+#### **Keywords**
+
+- 발전하는  
+  - 저는 언어 학습이나 프로젝트 진행 중 궁금한 점이 생기면 단순히 모르는 부분만 찾아보는 것에 그치지 않고,  
+  관련 정보 중 새로운 내용을 발견하면 더 깊이 있는 이해를 위해 시간을 투자합니다.  
+  이러한 방식으로 지속적인 학습과 성장을 추구합니다.  
+- 소통하는
+  - 
+- 성실한
 
 
 ### **🎓 학력**
@@ -93,37 +106,35 @@ toc: true
 #### 프론트엔드
 
 - <img alt="Static Badge_html5" height="23px" class="badge" src="https://img.shields.io/badge/HTML5-%23E33F26?style=flat&logo=HTML5&logoColor=%23fff">
-    - `HTML5` 기본 문서에 구조에 대한 이해도가 높습니다. `<html>`, `<head>`, `<meta>`, `<body>` 등의 기본 태그들에 대한 이해와 활용 능력이 있습니다.
-    - `<article>`, `<section>`, `<header>`, `<footer`>와 같은 시멘틱 요소를 사용하여 웹페이지의 의미를 명확하게 표현할 수 있습니다. 이를 통해 SEO 최적화에 기여할 수 있습니다.
-    - 웹 표준을 이해하고 준수하기 위해 노력하고 있습니다.
+  - `HTML5` 문서 구조에 대한 높은 이해와 기본 태그 활용 능력을 갖추고 있습니다.
+  - 시멘틱 태그(`<article>`, `<section>`, `<header>`, `<footer>`)를 사용해 웹페이지의 의미를 명확히 하며, SEO 최적화에 기여할 수 있습니다.
+  - 웹 표준을 준수하며 개발합니다.
+
 - <img alt="Static Badge_css3" height="23px" class="badge" src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=%23fff">
-    -  `Media Query`를 활용하여 다양한 화면 크기에서 반응형 레이아웃을 조정하고, 사용자 경험을 최적화하는 데 능숙합니다.
-    -  `CSS3`의 애니메이션 및 전환 기능을 사용하여 웹 요소의 시각적인 효과를 구현할 수 있습니다.
-    - `Flexbox`와 `CSS Grid` 레이아웃에 대해 충분히 이해하고 있으며, 이를 활용해 웹 페이지의 구조를 효과적으로 설계할 수 있습니다.
-    - `CSS` 방법론(`OOCSS`, `BEM`, `SMACSS`)을 사용하여 원활한 유지보수 및 코드의 재사용성을 높이기 위해 노력하고 있습니다.
-    - 웹 표준을 이해하고 준수하기 위해 노력하고 있습니다.
+  -  `Media Query`로 다양한 화면 크기에 맞춘 반응형 레이아웃을 구현하고, 사용자 경험을 개선합니다.
+  -  `CSS3` 애니메이션과 전환 효과로 시각적 요소를 구현할 수 있습니다.
+  -  `Flex-box`와 `CSS Grid`를 활용한 레이아웃 설계에 능숙하며, `OOCSS`, `BEM`, `SMACSS` 방법론을 통해 코드 재사용성과 유지보수성을 높입니다.
+  - 웹 표준을 준수하며 개발합니다.
+
 - <img alt="Static Badge_javascript" height="23px" class="badge" src="https://img.shields.io/badge/JavaScript-%23F7DF1E?style=flat&logo=JavaScript&logoColor=%23000">
-    - `JavaScript`의 기본 문법과 데이터 타입(문자열, 숫자, 배열 등)에 대한 기초적인 이해를 가지고 있습니다.
-    - `DOM(Document Object Model)` 조작을 하여 웹 페이지의 요소를 동적으로 수정하고 조작할 수 있습니다. 
-    - `JavaScript` 엔진의 동작 원리(`Stack`, `Queue`, `Event Loop`, `Heap`)를 이해하고 있으며, 비동기 처리(`Callback`함수, `EventListener`, `async / await`, `promise`등)에 대해서도 숙지하고 있습니다.
-    - 웹 표준을 이해하고 준수하기 위해 노력하고 있습니다.
+  - `JavaScript` 기본 문법과 데이터 타입에 대한 이해가 있으며, `DOM` 조작을 통해 동적 웹페이지를 구현할 수 있습니다.
+  - `Stack`, `Queue`, `Event Loop`, `Heap` 등 `JavaScript` 엔진의 동작 원리를 이해하고, 비동기 처리(`Callback`, `async/await`, `Promise`)도 이해하고 있습니다.
+  - 웹 표준을 준수하며 개발합니다.
 
 #### 백엔드
 
 - <img alt="Node.js" height="23px" class="badge" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white">
-    - `Node.js`의 기본 개념과 구조를 이해하고 있으며, `Express.js`를 활용해 간단한 서버를 구현할 수 있습니다.
-    - `npm`을 사용하여 외부 라이브러리를 관리하고, 모듈화된 코드를 작성할 수 있으며, `fs`(파일 시스템 모듈)를 이용해 서버 내 파일을 처리하는 간단한 작업을 구현할 수 있습니다.
-    - `Node.js` 환경에서 `MongoDB`를 활용해 `NoSQL` 데이터베이스와 연동할 수 있습니다.
+  - `Node.js`와 `Express.js`를 활용해 간단한 서버를 구축할 수 있습니다.
+  - `npm`을 통해 라이브러리를 관리하고 모듈화된 코드를 작성할 수 있습니다.
+  - `Node.js` 환경에서 `MongoDB`와의 연동이 가능합니다.
 
 #### 버전 관리 및 협업
 
 - <img alt="Git" height="23px" class="badge" src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white">
-    - `Git`을 사용하여 로컬과 원격 저장소 간의 작업 흐름을 이해하고, 이를 통해 효과적으로 버전 관리를 수행할 수 있습니다. 
-    -  `branch`와 `merge`를 사용하여 팀원들과의 협업 시 다양한 브랜치 전략(`Git flow, Trunk-based`)을 적용하고 있습니다. 
+  - `Git`을 활용한 버전 관리와 `branch`, `merge`,`rebase`를 사용한 협업에 능숙합니다. 다양한 브랜치 전략(`Git flow`, `Trunk-based`)을 적용할 수 있습니다.
 - <img alt="GitHub" height="23px" class="badge" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white">
-    -  `Github`를 사용하여 원격 저장소를 관리하고, 이를 통해 팀원들과의 협업을 효과적으로 수행할 수 있습니다. 
-    -  코드 형상 관리 경험과 `Pull Request(PR)`를 통한 코드 리뷰 경험이 있습니다.
-    -  `GitHub` 조직 관리 경험이 있으며, `Pull Request(PR)` 관리, `branch` 보호 규칙 설정 등을 통해 팀 협업 프로세스를 최적화하고 효율적인 역할 분담을 구현했습니다.
+  - `GitHub`을 사용한 원격 저장소 관리 및 `Pull Request` 기반의 코드 리뷰 경험이 있습니다.
+  - 팀 프로젝트에서 `GitHub` 조직을 관리하며 브랜치 보호 규칙을 설정하여 협업 프로세스를 최적화한 경험이 있습니다.
     
 
 ### **🎨 디자인**
@@ -135,13 +146,8 @@ toc: true
   <img alt="Static Badge_pr" height="23px" class="badge" src="https://img.shields.io/badge/Adobe%20Premiere%20Pro-%239999FF?style=flat&logo=adobepremierepro&logoColor=%23fff">
 </div>
 
-### **🔑 키워드**
 
-- 발전하는
-- 소통하는
-- 성실한
-
-### **📁 포트폴리오**
+### **📁 Project**
 
 #### <a href="https://toosign00.github.io/typography/" target="_blank" rel="noopener noreferrer">타이포그래피 소개 웹사이트</a>
 
