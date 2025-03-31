@@ -1,24 +1,24 @@
 // 이미지 임포트
-import htmlIcon from '../assets/images/html-5-icon.svg';
-import cssIcon from '../assets/images/css-3-icon.svg';
-import jsIcon from '../assets/images/js-icon.svg';
-import nodejsIcon from '../assets/images/nodejs-icon.svg';
-import ejsIcon from '../assets/images/ejs-icon.svg';
-import tailwindIcon from '../assets/images/tailwind-icon.svg';
-import reactIcon from '../assets/images/react-icon.svg';
-import mongodbIcon from '../assets/images/mongodb-icon.svg';
-import gsapIcon from '../assets/images/gsap-icon.svg';
-import jqueryIcon from '../assets/images/jquery-icon.svg';
-import gitIcon from '../assets/images/git-icon.svg';
-import portfolioThumb from '../assets/images/thumbnail-portfolio.webp';
-import memeRepoThumb from '../assets/images/thumbnail-meme-repository.webp';
-import myLifeStoryThumb from '../assets/images/thumbnail-my-life-story.webp';
-import willieThumb from '../assets/images/thumbnail-willie-library.webp';
-import oraGungThumb from '../assets/images/thumbnail-ora-gung.webp';
-import typeThumb from '../assets/images/thumbnail-type.webp';
-import ollyThumb from '../assets/images/thumbnail-olly.webp';
-import minigameThumb from '../assets/images/thumbnail-minigame.webp';
-import filmMagazineThumb from '../assets/images/thumbnail-film-magazine.webp';
+import htmlIcon from '../../assets/images/html-5-icon.svg';
+import cssIcon from '../../assets/images/css-3-icon.svg';
+import jsIcon from '../../assets/images/js-icon.svg';
+import nodejsIcon from '../../assets/images/nodejs-icon.svg';
+import ejsIcon from '../../assets/images/ejs-icon.svg';
+import tailwindIcon from '../../assets/images/tailwind-icon.svg';
+import reactIcon from '../../assets/images/react-icon.svg';
+import mongodbIcon from '../../assets/images/mongodb-icon.svg';
+import gsapIcon from '../../assets/images/gsap-icon.svg';
+import jqueryIcon from '../../assets/images/jquery-icon.svg';
+import gitIcon from '../../assets/images/git-icon.svg';
+import portfolioThumb from '../../assets/images/thumbnail-portfolio.webp';
+import memeRepoThumb from '../../assets/images/thumbnail-meme-repository.webp';
+import myLifeStoryThumb from '../../assets/images/thumbnail-my-life-story.webp';
+import willieThumb from '../../assets/images/thumbnail-willie-library.webp';
+import oraGungThumb from '../../assets/images/thumbnail-ora-gung.webp';
+import typeThumb from '../../assets/images/thumbnail-type.webp';
+import ollyThumb from '../../assets/images/thumbnail-olly.webp';
+import minigameThumb from '../../assets/images/thumbnail-minigame.webp';
+import filmMagazineThumb from '../../assets/images/thumbnail-film-magazine.webp';
 
 // 기술 스택 객체 정의
 export const techStack = {
