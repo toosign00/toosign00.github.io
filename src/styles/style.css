@@ -11,9 +11,9 @@
   --font-body: 1.2rem;
   --font-sub-heading: 1.4rem;
   --font-heading: 1.6rem;
-  --font-display-small: 2.5rem;
-  --font-display: 3.5rem;
-  --font-display-large: 4.5rem;
+  --font-display-small: 1.8rem;
+  --font-display: 2rem;
+  --font-display-large: 2.2rem;
 
   /* Line heights */
   --font-line-height-1-15: 1.15;
@@ -257,7 +257,7 @@ header {
 }
 
 .section--heading {
-  font-size: var(--font-display-small);
+  font-size: var(--font-display);
   font-weight: 600;
   line-height: var(--font-line-height-1-15);
   text-align: left;
