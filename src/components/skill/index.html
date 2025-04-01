@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스킬 섹션 데모</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section id="skills">
+      <h2 class="section--heading">Skills</h2>
+
+      <div class="skills--section">
+        <div class="skills--container tw-bg-gradient-to-r tw-from-blue-50 tw-to-indigo-50">
+          <h3 class="skills--heading"><span class="heading--highlight">Tech</span> Skills</h3>
+
+          <p class="skills--description">
+            사용자 경험 중심의 웹 애플리케이션을 개발하기 위한 기술 스택과 역량을 보유하고 있습니다. 각 기술을 클릭하면 상세 역량과 관련 프로젝트를
+            확인하실 수 있습니다.
+          </p>
+
+          <!-- 스킬 네비게이션 탭 -->
+          <div class="skills--navigation">
+            <button class="skills--tab active" data-target="frontend">
+              <span>프론트엔드</span>
+            </button>
+            <button class="skills--tab" data-target="backend">
+              <span>백엔드</span>
+            </button>
+            <button class="skills--tab" data-target="tools">
+              <span>개발 도구</span>
+            </button>
+            <button class="skills--tab" data-target="design">
+              <span>디자인</span>
+            </button>
+          </div>
+
+          <!-- 스킬 콘텐츠 영역 -->
+          <div class="skills--content-wrapper">
+            <!-- 프론트엔드 스킬 -->
+            <div class="skills--content active" id="frontend-skills">
+              <div class="skills--grid">
+                <!-- HTML 스킬 카드 -->
+                <div class="skill--card" data-skill="html">
+                  <div class="skill--header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 아이콘" class="skill--icon" />
+                    <h3 class="skill--name">HTML5</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>시맨틱 마크업</li>
+                      <li>접근성 & ARIA</li>
+                      <li>SEO 최적화</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>쇼핑몰 프로젝트에서 접근성 고려한 마크업 구현</li>
+                      <li>구조화된 데이터로 SEO 최적화 적용</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- CSS 스킬 카드 -->
+                <div class="skill--card" data-skill="css">
+                  <div class="skill--header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 아이콘" class="skill--icon" />
+                    <h3 class="skill--name">CSS3</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>Flexbox/Grid</li>
+                      <li>반응형 디자인</li>
+                      <li>CSS 애니메이션</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>복잡한 레이아웃의 대시보드 UI 구현</li>
+                      <li>CSS 변수를 통한 테마 시스템 구축</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Tailwind CSS 스킬 카드 -->
+                <div class="skill--card" data-skill="tailwind">
+                  <div class="skill--header">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+                      alt="Tailwind CSS 아이콘"
+                      class="skill--icon"
+                    />
+                    <h3 class="skill--name">Tailwind CSS</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>유틸리티 우선 디자인</li>
+                      <li>테마 커스터마이징</li>
+                      <li>컴포넌트 추출</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>관리자 패널 UI 컴포넌트 라이브러리 구축</li>
+                      <li>디자인 시스템 일관성 유지를 위한 구성 관리</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- JavaScript 스킬 카드 -->
+                <div class="skill--card" data-skill="javascript">
+                  <div class="skill--header">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript 아이콘"
+                      class="skill--icon"
+                    />
+                    <h3 class="skill--name">JavaScript</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>ES6+ 문법</li>
+                      <li>비동기 프로그래밍</li>
+                      <li>DOM 조작</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>로컬 스토리지 활용 데이터 관리 시스템 구현</li>
+                      <li>REST API 연동 및 비동기 데이터 처리</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- TypeScript 스킬 카드 -->
+                <div class="skill--card" data-skill="typescript">
+                  <div class="skill--header">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                      alt="TypeScript 아이콘"
+                      class="skill--icon"
+                    />
+                    <h3 class="skill--name">TypeScript</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>타입 정의 & 인터페이스</li>
+                      <li>제네릭 활용</li>
+                      <li>타입 추론</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>타입 안전성 확보로 버그 발생률 감소</li>
+                      <li>모듈화된 코드 베이스 관리 최적화</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- React 스킬 카드 -->
+                <div class="skill--card" data-skill="react">
+                  <div class="skill--header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React 아이콘" class="skill--icon" />
+                    <h3 class="skill--name">React</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>함수형 컴포넌트</li>
+                      <li>React Hooks</li>
+                      <li>상태 관리</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>커스텀 훅을 통한 재사용 가능한 로직 구현</li>
+                      <li>Context API를 활용한 전역 상태 관리</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 백엔드 스킬 -->
+            <div class="skills--content" id="backend-skills">
+              <div class="skills--grid">
+                <!-- Node.js 스킬 카드 -->
+                <div class="skill--card" data-skill="nodejs">
+                  <div class="skill--header">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                      alt="Node.js 아이콘"
+                      class="skill--icon"
+                    />
+                    <h3 class="skill--name">Node.js</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>Express.js 프레임워크</li>
+                      <li>RESTful API 개발</li>
+                      <li>미들웨어 활용</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>클라이언트-서버 데이터 동기화 시스템 구현</li>
+                      <li>JWT 기반 인증 서비스 구축</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 개발 도구 스킬 -->
+            <div class="skills--content" id="tools-skills">
+              <div class="skills--grid">
+                <!-- Git 스킬 카드 -->
+                <div class="skill--card" data-skill="git">
+                  <div class="skill--header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git 아이콘" class="skill--icon" />
+                    <h3 class="skill--name">Git</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>Git Flow 브랜치 전략</li>
+                      <li>충돌 해결 및 리베이스</li>
+                      <li>히스토리 관리</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>팀 프로젝트의 브랜치 전략 수립 및 적용</li>
+                      <li>복잡한 병합 시나리오에서 충돌 해결</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- GitHub 스킬 카드 -->
+                <div class="skill--card" data-skill="github">
+                  <div class="skill--header">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                      alt="GitHub 아이콘"
+                      class="skill--icon"
+                    />
+                    <h3 class="skill--name">GitHub</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>Pull Request & 코드 리뷰</li>
+                      <li>이슈 트래킹</li>
+                      <li>프로젝트 관리</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>코드 리뷰 문화 정착 및 품질 개선 활동</li>
+                      <li>프로젝트 보드를 활용한 업무 프로세스 최적화</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 디자인 스킬 -->
+            <div class="skills--content" id="design-skills">
+              <div class="skills--grid">
+                <!-- Figma 스킬 카드 -->
+                <div class="skill--card" data-skill="figma">
+                  <div class="skill--header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma 아이콘" class="skill--icon" />
+                    <h3 class="skill--name">Figma</h3>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">핵심 역량</h4>
+                    <ul class="skill--strengths">
+                      <li>디자인 시안 이해</li>
+                      <li>컴포넌트 활용</li>
+                      <li>프로토타이핑</li>
+                    </ul>
+                  </div>
+
+                  <div class="skill--category">
+                    <h4 class="category--title">기술 활용</h4>
+                    <ul class="experience--list">
+                      <li>디자이너와 효율적인 협업 워크플로우 구축</li>
+                      <li>디자인 시스템을 코드 컴포넌트로 변환</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 스킬 상세 정보 모달 -->
+      <div id="skill--modal" class="skill--modal">
+        <div class="modal--content">
+          <span class="close--button">&times;</span>
+          <div class="modal--header">
+            <h3 id="modal--title" class="modal--title">스킬 상세 정보</h3>
+          </div>
+          <div id="modal--body" class="modal--body">
+            <!-- 모달 내용은 JavaScript로 동적 생성 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./skillModal.js"></script>
+  </body>
+</html>
