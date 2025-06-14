@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { throttle } from 'es-toolkit';
 
 interface SectionPosition {
@@ -12,10 +12,20 @@ interface NavItem {
   sectionIds: string[];
 }
 
+const SCROLL_ANIMATION_TIMEOUT = 1200; // 스크롤 애니메이션 시간보다 약간 길게
+const SCROLL_THROTTLE_INTERVAL = 16; // 60fps 기준 (1000ms / 60fps ≈ 16ms)
+
 export const useScrollSection = (navItems: NavItem[]) => {
   const [active, setActive] = useState<string | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const navigationTimeoutRef = useRef<number | null>(null);
 
   const calculateActiveSection = useCallback(() => {
+    // 네비게이션 중이면 스크롤 기반 활성화 무시
+    if (isNavigating) {
+      return;
+    }
+
     const viewportHeight = window.innerHeight;
     const scrollPosition = window.scrollY;
     const viewportCenter = scrollPosition + viewportHeight / 2;
@@ -60,17 +70,49 @@ export const useScrollSection = (navItems: NavItem[]) => {
     });
 
     setActive(closestSection);
-  }, [navItems]);
+  }, [navItems, isNavigating]); // isNavigating을 dependency에 추가
+
+  // 수동으로 active 상태를 설정하는 함수 (버튼 클릭 시 사용)
+  const setActiveManual = useCallback(
+    (label: string) => {
+      // 즉시 상태 변경
+      setActive(label);
+
+      // 네비게이션 플래그 설정
+      setIsNavigating(true);
+
+      // 기존 타이머 정리
+      if (navigationTimeoutRef.current) {
+        clearTimeout(navigationTimeoutRef.current);
+      }
+
+      // 스크롤 애니메이션 완료 후 플래그 해제
+      navigationTimeoutRef.current = window.setTimeout(() => {
+        setIsNavigating(false);
+        // 플래그 해제 후 현재 위치 기준으로 다시 계산
+        calculateActiveSection();
+      }, SCROLL_ANIMATION_TIMEOUT);
+    },
+    [calculateActiveSection],
+  );
 
   useEffect(() => {
-    const throttledHandleScroll = throttle(calculateActiveSection, 16);
+    const throttledHandleScroll = throttle(calculateActiveSection, SCROLL_THROTTLE_INTERVAL);
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     calculateActiveSection();
+
     return () => {
       window.removeEventListener('scroll', throttledHandleScroll);
       throttledHandleScroll.cancel();
+      if (navigationTimeoutRef.current) {
+        clearTimeout(navigationTimeoutRef.current);
+      }
     };
   }, [calculateActiveSection]);
 
-  return { active, setActive };
+  return {
+    active,
+    setActive: setActiveManual,
+    isNavigating, // 이제 반응형 상태값 반환
+  };
 };
