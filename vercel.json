@@ -3,10 +3,19 @@
     {
       "source": "/projects/(.*)",
       "destination": "/index.html"
-    },
+    }
+  ],
+  "redirects": [
     {
-      "source": "/((?!projects/).*)",
-      "destination": "/index.html"
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "toosign.kr"
+        }
+      ],
+      "destination": "https://toosign.kr",
+      "permanent": true
     }
   ]
 }
