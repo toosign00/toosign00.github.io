@@ -1,6 +1,4 @@
-interface TechnologyStackProps {
-  technologies: string[];
-}
+import type { TechnologyStackProps } from '@/types/projectModal.type';
 
 export const TechnologyStack = ({ technologies }: TechnologyStackProps) => {
   return (

@@ -1,8 +1,4 @@
-import type { Project } from '@/data/projectsData';
-
-interface ProjectInfoProps {
-  project: Project;
-}
+import type { ProjectInfoProps } from '@/types/projectModal.type';
 
 export const ProjectInfo = ({ project }: ProjectInfoProps) => {
   // 인원/팀구성
@@ -31,16 +27,16 @@ export const ProjectInfo = ({ project }: ProjectInfoProps) => {
           <div className="mb-1 text-xs font-semibold text-gray-400">관련 링크</div>
           <div className="text-sm font-normal text-white">
             <a
-              href={project.github.url}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="underline transition-colors hover:text-blue-400"
             >
               깃허브
             </a>
-            {project.deploy && (
+            {project.deployUrl && (
               <a
-                href={project.deploy.url}
+                href={project.deployUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-4 underline transition-colors hover:text-white"

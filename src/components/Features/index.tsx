@@ -1,7 +1,7 @@
 import { SectionLayout } from '@/layout/SectionLayout';
 import { SectionHeader } from '@/layout/SectionHeader';
 import { FeatureCard } from './components/FeatureCard';
-import { features } from './constants/features.constants';
+import { features } from '@/constants/features.constants';
 import { motion } from 'framer-motion';
 import { featureContainerVariants, featureItemVariants } from '@/motion/featureAnimations';
 import { useViewportAmount } from '@/hooks/useViewportAmount';
@@ -16,7 +16,7 @@ export const Features = () => {
         description="소통과 협업을 중시하며 끈기로 문제를 해결하고, 팀과 함께 성장하는 프론트엔드 개발자입니다."
         useAnimation={true}
       />
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           variants={featureContainerVariants}
           initial="hidden"

@@ -1,9 +1,9 @@
-import { Button } from '@/components/common/Button';
-import { PROFILE_CONSTANTS } from '@/components/Intro/constants/profile.constants';
+import { Button } from '@/components/Button/Button';
+import { PROFILE_CONSTANTS } from '@/constants/profile.constants';
 
 export const ProfileActions = () => {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+    <div className="flex flex-row gap-4 sm:gap-6">
       <Button
         href={PROFILE_CONSTANTS.RESUME.PATH}
         size={{ base: 'md', md: 'lg' }}

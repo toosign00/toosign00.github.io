@@ -1,11 +1,8 @@
 import { motion } from 'framer-motion';
 import type { CSSProperties } from 'react';
+import type { ScrollIndicatorProps } from '@/types/intro.type';
 
-interface ScrollIndicatorProps {
-  show: boolean;
-}
-
-export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ show }) => {
+export function ScrollIndicator({ show }: ScrollIndicatorProps) {
   if (!show) return null;
 
   const motionStyle: CSSProperties = {
@@ -67,4 +64,4 @@ export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ show }) => {
       </motion.div>
     </motion.div>
   );
-};
+}

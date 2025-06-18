@@ -14,6 +14,20 @@ export default defineConfig({
       { find: '@styles', replacement: '/src/styles' },
       { find: '@types', replacement: '/src/types' },
       { find: '@motion', replacement: '/src/motion' },
+      { find: '@constants', replacement: '/src/constants' },
     ],
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['framer-motion', 'react-icons'],
+          'data-vendor': ['@tanstack/react-query', '@supabase/supabase-js'],
+          'form-vendor': ['react-hook-form', '@emailjs/browser'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 500,
   },
 });
