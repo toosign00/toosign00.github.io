@@ -40,16 +40,52 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-        output: sarif-results
-        upload: false  # ← 일단 업로드 하지 않고 결과 확인
+        # PR인 경우에만 SARIF 파일 저장
+        output: ${{ github.event_name == 'pull_request' && 'sarif-results' || '' }}
+        upload: ${{ github.event_name != 'pull_request' }}
 
-    # PR 코멘트 추가
-    - name: Comment PR with CodeQL Results
+    # SARIF 파일 확인 (실제 생성된 파일명 확인)
+    - name: Check SARIF files
       if: github.event_name == 'pull_request'
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: sarif-results/${{ matrix.language }}.sarif
-        category: "/language:${{matrix.language}}"
+      run: |
+        echo "📁 SARIF 결과 디렉토리 확인:"
+        ls -la sarif-results/ || echo "❌ sarif-results 디렉토리 없음"
+        
+        echo "🔍 생성된 SARIF 파일들:"
+        find sarif-results -name "*.sarif" -type f 2>/dev/null || echo "❌ SARIF 파일 없음"
+        
+        # 각 파일의 정보 출력
+        for file in sarif-results/*.sarif; do
+          if [ -f "$file" ]; then
+            echo "✅ 파일: $file ($(wc -c < "$file") bytes)"
+          fi
+        done
+
+    # 실제 생성된 SARIF 파일을 Security 탭에 업로드
+    - name: Upload SARIF for PR
+      if: github.event_name == 'pull_request'
+      continue-on-error: true
+      run: |
+        # 실제 생성된 SARIF 파일 찾기
+        SARIF_FILE=$(find sarif-results -name "*.sarif" -type f | head -1)
+        
+        if [ -n "$SARIF_FILE" ] && [ -f "$SARIF_FILE" ]; then
+          echo "📤 SARIF 파일 업로드: $SARIF_FILE"
+          
+          # GitHub CLI를 사용하여 업로드
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/code-scanning/sarifs" \
+            --input "$SARIF_FILE" \
+            -F "commit_sha=${{ github.sha }}" \
+            -F "ref=${{ github.ref }}" || echo "⚠️ 업로드 실패 (계속 진행)"
+        else
+          echo "❌ 업로드할 SARIF 파일을 찾을 수 없음"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # PR에 상세 코멘트 추가
     - name: Add detailed comment to PR
