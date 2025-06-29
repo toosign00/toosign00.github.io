@@ -188,9 +188,8 @@ jobs:
             body: comment
           });
 
-  # 정기 스캔은 Security 탭에만 업로드
+  # 모든 경우에 Security 탭 업로드
   upload-results:
-    if: github.event_name != 'pull_request'
     needs: analyze
     runs-on: ubuntu-latest
     permissions:
