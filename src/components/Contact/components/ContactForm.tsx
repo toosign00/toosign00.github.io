@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import type { ContactFormData, ContactFormProps } from '@/types/contact.type';
 import xss from 'xss';
+import type { ContactFormData, ContactFormProps } from '@/types/contact.type';
 
 const sanitizeInput = (value: string) => {
   return xss(value, {
@@ -36,15 +36,15 @@ export const ContactForm = ({ loading, onSubmit }: ContactFormProps) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmitForm)}
-      className="bg-ui-background-black mx-auto flex max-w-md flex-col gap-4 rounded-xl p-6 shadow-lg"
+      className='bg-ui-background-black mx-auto flex max-w-md flex-col gap-4 rounded-xl p-6 shadow-lg'
     >
-      <div className="flex min-h-[5rem] flex-col gap-1">
-        <label htmlFor="user_name" className="text-left font-semibold text-white">
+      <div className='flex min-h-[5rem] flex-col gap-1'>
+        <label htmlFor='user_name' className='text-left font-semibold text-white'>
           이름
         </label>
         <input
-          id="user_name"
-          type="text"
+          id='user_name'
+          type='text'
           {...register('user_name', {
             required: '이름을 입력해주세요',
             minLength: {
@@ -53,18 +53,18 @@ export const ContactForm = ({ loading, onSubmit }: ContactFormProps) => {
             },
             setValueAs: (value: string) => sanitizeInput(value),
           })}
-          className="focus:ring-blue rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2"
+          className='focus:ring-blue rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2'
         />
-        <span className="min-h-[1.25rem] text-sm text-red-500">{errors.user_name?.message}</span>
+        <span className='min-h-[1.25rem] text-sm text-red-500'>{errors.user_name?.message}</span>
       </div>
 
-      <div className="flex min-h-[5rem] flex-col gap-1">
-        <label htmlFor="user_email" className="text-left font-semibold text-white">
+      <div className='flex min-h-[5rem] flex-col gap-1'>
+        <label htmlFor='user_email' className='text-left font-semibold text-white'>
           이메일
         </label>
         <input
-          id="user_email"
-          type="email"
+          id='user_email'
+          type='email'
           {...register('user_email', {
             required: '이메일을 입력해주세요',
             pattern: {
@@ -73,49 +73,51 @@ export const ContactForm = ({ loading, onSubmit }: ContactFormProps) => {
             },
             setValueAs: (value: string) => sanitizeInput(value),
           })}
-          className="focus:ring-blue rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2"
+          className='focus:ring-blue rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2'
         />
-        <span className="min-h-[1.25rem] text-sm text-red-500">{errors.user_email?.message}</span>
+        <span className='min-h-[1.25rem] text-sm text-red-500'>{errors.user_email?.message}</span>
       </div>
 
-      <div className="flex min-h-[7rem] flex-col gap-1">
-        <label htmlFor="message" className="text-left font-semibold text-white">
+      <div className='flex min-h-[7rem] flex-col gap-1'>
+        <label htmlFor='message' className='text-left font-semibold text-white'>
           메시지
         </label>
         <textarea
-          id="message"
+          id='message'
           rows={5}
           {...register('message', {
             required: '메시지를 입력해주세요',
             setValueAs: (value: string) => sanitizeInput(value),
           })}
-          className="focus:ring-blue resize-none rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2"
+          className='focus:ring-blue resize-none rounded border border-gray-700 bg-[#23272f] p-3 text-white focus:outline-none focus-visible:ring-2'
         />
-        <span className="min-h-[1.25rem] text-sm text-red-500">{errors.message?.message}</span>
+        <span className='min-h-[1.25rem] text-sm text-red-500'>{errors.message?.message}</span>
       </div>
 
       <button
-        type="submit"
-        className="submit--btn bg-blue cursor-pointer rounded py-2 font-semibold text-black transition hover:opacity-80 disabled:opacity-60"
+        type='submit'
+        className='submit--btn bg-blue cursor-pointer rounded py-2 font-semibold text-black transition hover:opacity-80 disabled:opacity-60'
         disabled={loading}
       >
         {loading ? (
-          <span className="flex items-center justify-center gap-2">
+          <span className='flex items-center justify-center gap-2'>
             <svg
-              className="mr-2 h-5 w-5 animate-spin text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+              className='mr-2 h-5 w-5 animate-spin text-white'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              aria-label='로딩 중'
             >
+              <title>로딩 스피너</title>
               <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                className='opacity-25'
+                cx='12'
+                cy='12'
+                r='10'
+                stroke='currentColor'
+                strokeWidth='4'
+              />
+              <path className='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8v8z' />
             </svg>
             전송중...
           </span>

@@ -1,6 +1,6 @@
-import { useScrollSection } from '@/hooks/useScrollSection';
-import { navItems, type NavItem } from '../../constants/navigation.constants';
 import { motion } from 'framer-motion';
+import { useScrollSection } from '@/hooks/useScrollSection';
+import { type NavItem, navItems } from '../../constants/navigation.constants';
 
 export const NavBar = () => {
   const { active, setActive, isNavigating } = useScrollSection(navItems);
@@ -23,12 +23,12 @@ export const NavBar = () => {
   };
 
   return (
-    <header className="sticky top-4 z-50 w-full sm:w-auto">
-      <div className="flex justify-center">
+    <header className='sticky top-4 z-50 w-full sm:w-auto'>
+      <div className='flex justify-center'>
         <motion.nav
-          className="flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-2 py-1.5 shadow-lg backdrop-blur-md sm:gap-3 sm:px-4 sm:py-2"
-          role="navigation"
-          aria-label="메인 네비게이션"
+          className='flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-2 py-1.5 shadow-lg backdrop-blur-md sm:gap-3 sm:px-4 sm:py-2'
+          role='navigation'
+          aria-label='메인 네비게이션'
           initial={{ y: -20, opacity: 0, scale: 0.9 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{
@@ -40,7 +40,7 @@ export const NavBar = () => {
           }}
         >
           <motion.div
-            className="mr-1 flex items-center gap-0.5 sm:mr-2 sm:gap-1"
+            className='mr-1 flex items-center gap-0.5 sm:mr-2 sm:gap-1'
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
@@ -52,26 +52,26 @@ export const NavBar = () => {
             }}
           >
             <motion.span
-              className="bg-blue block h-2 w-2 rounded-full sm:h-3 sm:w-3"
+              className='bg-blue block h-2 w-2 rounded-full sm:h-3 sm:w-3'
               whileHover={{ scale: 1.3, rotate: 10 }}
               transition={{ type: 'spring', stiffness: 600, damping: 12 }}
             />
             <motion.span
-              className="bg-pink block h-2 w-2 rounded-full sm:h-3 sm:w-3"
+              className='bg-pink block h-2 w-2 rounded-full sm:h-3 sm:w-3'
               whileHover={{ scale: 1.3, rotate: -10 }}
               transition={{ type: 'spring', stiffness: 600, damping: 12 }}
             />
             <motion.span
-              className="bg-yellow block h-2 w-2 rounded-full sm:h-3 sm:w-3"
+              className='bg-yellow block h-2 w-2 rounded-full sm:h-3 sm:w-3'
               whileHover={{ scale: 1.3, rotate: 10 }}
               transition={{ type: 'spring', stiffness: 600, damping: 12 }}
             />
           </motion.div>
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className='flex items-center gap-1 sm:gap-2'>
             {navItems.map((item) => (
               <motion.div
                 key={item.label}
-                className="relative"
+                className='relative'
                 initial={false}
                 animate={{
                   scale: active === item.label ? 1 : 0.95,
@@ -95,8 +95,8 @@ export const NavBar = () => {
                 </a>
                 {active === item.label && (
                   <motion.div
-                    className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-[#0E1623]"
-                    layoutId="activeNavItem"
+                    className='pointer-events-none absolute inset-0 -z-10 rounded-full bg-[#0E1623]'
+                    layoutId='activeNavItem'
                     transition={{
                       type: 'spring',
                       stiffness: isNavigating ? 250 : 400,

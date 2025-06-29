@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { floatingVariants } from '@/motion/intoAnimations';
-import { useMemo } from 'react';
 import type { CSSProperties } from 'react';
+import { useMemo } from 'react';
+import { floatingVariants } from '@/motion/intoAnimations';
 import type { FloatingElementConfig } from '@/types/intro.type';
 
 const FLOATING_CONFIG: FloatingElementConfig[] = [
@@ -38,11 +38,11 @@ export function FloatingElements() {
     <>
       {elements.map((element: FloatingElementConfig, index: number) => (
         <motion.div
-          key={`floating-${index}`}
+          key={`floating-${element.className.slice(0, 20)}-${index}`}
           className={element.className}
           variants={floatingVariants}
-          initial="initial"
-          animate="animate"
+          initial='initial'
+          animate='animate'
           transition={{ delay: element.delay }}
           style={motionStyle}
         />

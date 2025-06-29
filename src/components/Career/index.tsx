@@ -1,5 +1,5 @@
-import { SectionLayout } from '@/layout/SectionLayout';
 import { SectionHeader } from '@/layout/SectionHeader';
+import { SectionLayout } from '@/layout/SectionLayout';
 import { CareerItem } from './components/CareerItem';
 
 const experiences = [
@@ -37,17 +37,17 @@ const experiences = [
 
 export default function Career() {
   return (
-    <SectionLayout id="career">
+    <SectionLayout id='career'>
       <SectionHeader
-        title="경력 사항"
-        description="다양한 업무와 프로젝트를 통해 경험과 노하우를 쌓고 있습니다."
+        title='경력 사항'
+        description='다양한 업무와 프로젝트를 통해 경험과 노하우를 쌓고 있습니다.'
         useAnimation={false}
       />
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <CareerItem key={index} {...exp} />
+      <div className='container mx-auto px-4'>
+        <div className='mx-auto max-w-3xl text-center'>
+          <div className='space-y-12'>
+            {experiences.map((exp, _index) => (
+              <CareerItem key={`${exp.company}-${exp.period}`} {...exp} />
             ))}
           </div>
         </div>

@@ -1,16 +1,16 @@
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ProjectInfo } from './components/ProjectInfo';
+import { useRef } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ModalSkeleton } from '@/components/Skeleton/ModalSkeleton';
 import { useModalClose } from '@/hooks/useModalClose';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
 import { useProject } from '@/hooks/useProjectsQuery';
-import { ProjectDetailList } from './components/ProjectDetailList';
-import { ModalHeader } from './components/ModalHeader';
-import { TechnologyStack } from './components/TechnologyStack';
-import { ModalSkeleton } from '@/components/Skeleton/ModalSkeleton';
 import { useProjectSkeletonLoading } from '@/hooks/useSkeletonLoading';
-import { normalizeErrorMessage, isNotFoundError } from '@/utils/errorUtils';
+import { isNotFoundError, normalizeErrorMessage } from '@/utils/errorUtils';
+import { ModalHeader } from './components/ModalHeader';
+import { ProjectDetailList } from './components/ProjectDetailList';
+import { ProjectInfo } from './components/ProjectInfo';
+import { TechnologyStack } from './components/TechnologyStack';
 
 /**
  * @component ProjectModal
@@ -46,7 +46,7 @@ export const ProjectModal = () => {
   if (showSkeleton) {
     return (
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+        className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, ease: 'easeInOut' }}
@@ -54,7 +54,7 @@ export const ProjectModal = () => {
         <motion.div
           ref={modalRef}
           data-modal-content
-          className="bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8"
+          className='bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8'
           tabIndex={-1}
           initial={{ opacity: 0, y: 70, scale: 0.95 }}
           animate={{
@@ -82,7 +82,7 @@ export const ProjectModal = () => {
 
     return (
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+        className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
         onClick={handleOverlayClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: isClosing ? 0 : 1 }}
@@ -91,7 +91,7 @@ export const ProjectModal = () => {
         <motion.div
           ref={modalRef}
           data-modal-content
-          className="bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8"
+          className='bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8'
           tabIndex={-1}
           initial={{ opacity: 0, y: 70, scale: 0.95 }}
           animate={{
@@ -106,14 +106,15 @@ export const ProjectModal = () => {
             duration: 0.2,
           }}
         >
-          <div className="text-center">
-            <h2 className="mb-4 text-xl font-bold text-white">
+          <div className='text-center'>
+            <h2 className='mb-4 text-xl font-bold text-white'>
               {isNotFound ? '프로젝트를 찾을 수 없습니다' : '오류가 발생했습니다'}
             </h2>
-            <p className="mb-6 text-gray-400">{errorMessage}</p>
+            <p className='mb-6 text-gray-400'>{errorMessage}</p>
             <button
+              type='button'
               onClick={handleClose}
-              className="rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
+              className='rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700'
             >
               닫기
             </button>
@@ -131,7 +132,7 @@ export const ProjectModal = () => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
       onClick={handleOverlayClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: isClosing ? 0 : 1 }}
@@ -140,7 +141,7 @@ export const ProjectModal = () => {
       <motion.div
         ref={modalRef}
         data-modal-content
-        className="bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8"
+        className='bg-ui-background relative mx-4 max-h-[80vh] w-full max-w-xl overflow-y-scroll rounded-xl border border-white/10 px-4 py-10 shadow-2xl sm:mx-0 sm:px-8'
         tabIndex={-1}
         initial={{ opacity: 0, y: 70, scale: 0.95 }}
         animate={{

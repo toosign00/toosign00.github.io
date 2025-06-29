@@ -57,14 +57,14 @@ export const NotificationModal = ({
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       <motion.div
-        className="bg-ui-background relative mx-4 w-full max-w-md rounded-xl px-6 py-8 shadow-2xl"
+        className='bg-ui-background relative mx-4 w-full max-w-md rounded-xl px-6 py-8 shadow-2xl'
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -75,10 +75,11 @@ export const NotificationModal = ({
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="text-center">
-          <h3 className="mb-3 text-xl font-bold text-white">{title}</h3>
-          <p className="mb-6 text-gray-300">{message}</p>
+        <div className='text-center'>
+          <h3 className='mb-3 text-xl font-bold text-white'>{title}</h3>
+          <p className='mb-6 text-gray-300'>{message}</p>
           <button
+            type='button'
             onClick={onClose}
             className={`${styles.bgColor} focus-visible:ring-blue cursor-pointer rounded-lg px-6 py-2 font-semibold text-white transition-colors hover:opacity-90 focus:outline-none focus-visible:ring-2`}
           >
