@@ -2,9 +2,9 @@ name: "CodeQL Advanced with PR Comments"
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop", "main" ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "develop", "main" ]
   schedule:
     - cron: '0 0 * * 1'  # 매주 월요일 한국시간 09:00
 
@@ -17,7 +17,7 @@ jobs:
       packages: read
       actions: read
       contents: read
-      pull-requests: write  # ← PR 코멘트 권한 추가
+      pull-requests: write
 
     strategy:
       fail-fast: false
@@ -40,146 +40,36 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-        # PR인 경우에만 SARIF 파일 저장
-        output: ${{ github.event_name == 'pull_request' && 'sarif-results' || '' }}
-        upload: ${{ github.event_name != 'pull_request' }}
+        # 항상 Security 탭에 업로드 (job 통합으로 해결)
+        upload: true
 
-    # SARIF 파일 확인 (실제 생성된 파일명 확인)
-    - name: Check SARIF files
-      if: github.event_name == 'pull_request'
-      run: |
-        echo "📁 SARIF 결과 디렉토리 확인:"
-        ls -la sarif-results/ || echo "❌ sarif-results 디렉토리 없음"
-        
-        echo "🔍 생성된 SARIF 파일들:"
-        find sarif-results -name "*.sarif" -type f 2>/dev/null || echo "❌ SARIF 파일 없음"
-        
-        # 각 파일의 정보 출력
-        for file in sarif-results/*.sarif; do
-          if [ -f "$file" ]; then
-            echo "✅ 파일: $file ($(wc -c < "$file") bytes)"
-          fi
-        done
-
-    # 실제 생성된 SARIF 파일을 Security 탭에 업로드
-    - name: Upload SARIF for PR
-      if: github.event_name == 'pull_request'
-      continue-on-error: true
-      run: |
-        # 실제 생성된 SARIF 파일 찾기
-        SARIF_FILE=$(find sarif-results -name "*.sarif" -type f | head -1)
-        
-        if [ -n "$SARIF_FILE" ] && [ -f "$SARIF_FILE" ]; then
-          echo "📤 SARIF 파일 업로드: $SARIF_FILE"
-          
-          # GitHub CLI를 사용하여 업로드
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "/repos/${{ github.repository }}/code-scanning/sarifs" \
-            --input "$SARIF_FILE" \
-            -F "commit_sha=${{ github.sha }}" \
-            -F "ref=${{ github.ref }}" || echo "⚠️ 업로드 실패 (계속 진행)"
-        else
-          echo "❌ 업로드할 SARIF 파일을 찾을 수 없음"
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # PR에 상세 코멘트 추가
-    - name: Add detailed comment to PR
+    # PR에만 상세 코멘트 추가
+    - name: Add comment to PR
       if: github.event_name == 'pull_request'
       uses: actions/github-script@v7
       with:
         script: |
-          const fs = require('fs');
-          
-          // SARIF 파일 읽기
-          let sarifContent;
-          try {
-            sarifContent = JSON.parse(fs.readFileSync('sarif-results/${{ matrix.language }}.sarif', 'utf8'));
-          } catch (error) {
-            console.log('SARIF 파일을 찾을 수 없습니다.');
-            return;
-          }
-
-          const results = sarifContent.runs[0]?.results || [];
-          
-          if (results.length === 0) {
-            // 취약점이 없는 경우
-            const comment = `## 🛡️ CodeQL 보안 스캔 결과
-
-            ✅ **보안 취약점이 발견되지 않았습니다!**
-            
-            - 스캔 완료 시간: ${new Date().toLocaleString('ko-KR')}
-            - 분석 언어: JavaScript/TypeScript
-            - 스캔 상태: 성공
-            
-            안전한 코드입니다! 🎉`;
-
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
-            return;
-          }
-
-          // 취약점별 분류
-          const severityCount = {
-            error: 0,
-            warning: 0,
-            note: 0
-          };
-
-          let detailsTable = '';
-          
-          results.forEach(result => {
-            const level = result.level || 'note';
-            severityCount[level]++;
-            
-            const rule = result.rule || {};
-            const location = result.locations?.[0]?.physicalLocation?.artifactLocation?.uri || 'Unknown';
-            const line = result.locations?.[0]?.physicalLocation?.region?.startLine || 'Unknown';
-            const message = result.message?.text || 'No description';
-            
-            detailsTable += `| ${getSeverityEmoji(level)} ${level.toUpperCase()} | \`${location}\` | Line ${line} | ${message.substring(0, 100)}... |\n`;
-          });
-
-          function getSeverityEmoji(level) {
-            switch(level) {
-              case 'error': return '🔴';
-              case 'warning': return '🟡';
-              case 'note': return '🔵';
-              default: return 'ℹ️';
-            }
-          }
-
           const comment = `## 🛡️ CodeQL 보안 스캔 결과
 
-          ⚠️ **${results.length}개의 보안 이슈가 발견되었습니다.**
-
-          ### 📊 요약
-          - 🔴 Critical/High: ${severityCount.error}개
-          - 🟡 Medium: ${severityCount.warning}개  
-          - 🔵 Low/Info: ${severityCount.note}개
-
-          ### 📋 상세 내역
-          | 심각도 | 파일 | 위치 | 설명 |
-          |--------|------|------|------|
-          ${detailsTable}
-
-          ### 🔗 상세 확인
-          전체 보안 스캔 결과는 [Security 탭](https://github.com/${context.repo.owner}/${context.repo.repo}/security/code-scanning)에서 확인하세요.
-
-          ### 🚨 권장사항
-          ${severityCount.error > 0 ? '🔴 **Critical/High 이슈는 머지 전에 반드시 수정해주세요.**' : ''}
-          ${severityCount.warning > 0 ? '🟡 Medium 이슈는 가능한 빠른 시일 내에 수정을 권장합니다.' : ''}
+          ✅ **보안 스캔이 완료되었습니다.**
+          
+          📊 **결과 확인**: [Security 탭](https://github.com/${{ github.repository }}/security/code-scanning)에서 상세 내용을 확인하세요.
+          
+          ### 📋 스캔 정보
+          - 🕒 **스캔 시간**: ${new Date().toLocaleString('ko-KR')}
+          - 📝 **분석 언어**: JavaScript/TypeScript
+          - 🔍 **스캔 범위**: 전체 소스코드
+          - ⚡ **실행 환경**: GitHub Actions
+          
+          ### 🔗 추가 정보
+          - 🛡️ **보안 이슈**: Security 탭에서 확인
+          - 📈 **보안 트렌드**: Insights > Security에서 확인
+          - 🔧 **수정 가이드**: 각 이슈별 상세 설명 제공
+          
+          > 💡 **참고**: 보안 이슈가 발견된 경우 Security 탭에서 우선순위와 수정 방법을 확인할 수 있습니다.
           
           ---
-          _스캔 완료: ${new Date().toLocaleString('ko-KR')}_`;
+          _🤖 CodeQL Advanced Scan | ${new Date().toISOString()}_`;
 
           await github.rest.issues.createComment({
             issue_number: context.issue.number,
@@ -187,15 +77,3 @@ jobs:
             repo: context.repo.repo,
             body: comment
           });
-
-  # 모든 경우에 Security 탭 업로드
-  upload-results:
-    needs: analyze
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-    steps:
-    - name: Upload to Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: sarif-results
