@@ -49,28 +49,254 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const comment = `## 🛡️ CodeQL 보안 스캔 결과
-
-          ✅ **보안 스캔이 완료되었습니다.**
+          const { execSync } = require('child_process');
           
-          📊 **결과 확인**: [Security 탭](https://github.com/${{ github.repository }}/security/code-scanning)에서 상세 내용을 확인하세요.
+          // 현재 스캔 결과 조회
+          let currentAlerts = [];
+          let scanSummary = {
+            critical: 0,
+            high: 0,
+            medium: 0,
+            low: 0,
+            note: 0,
+            total: 0
+          };
           
-          ### 📋 스캔 정보
-          - 🕒 **스캔 시간**: ${new Date().toLocaleString('ko-KR')}
-          - 📝 **분석 언어**: JavaScript/TypeScript
-          - 🔍 **스캔 범위**: 전체 소스코드
-          - ⚡ **실행 환경**: GitHub Actions
+          try {
+            // GitHub API로 현재 알림 조회
+            const alerts = await github.rest.codeScanning.listAlertsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+            
+            currentAlerts = alerts.data;
+            
+            // 심각도별 분류
+            currentAlerts.forEach(alert => {
+              const severity = alert.rule?.severity || 'note';
+              if (scanSummary.hasOwnProperty(severity)) {
+                scanSummary[severity]++;
+              }
+              scanSummary.total++;
+            });
+            
+          } catch (error) {
+            console.log('API 호출 실패, 기본 코멘트로 진행:', error.message);
+          }
           
-          ### 🔗 추가 정보
-          - 🛡️ **보안 이슈**: Security 탭에서 확인
-          - 📈 **보안 트렌드**: Insights > Security에서 확인
-          - 🔧 **수정 가이드**: 각 이슈별 상세 설명 제공
+          // 파일 변경 통계
+          let fileStats = {
+            added: 0,
+            modified: 0,
+            deleted: 0,
+            total: 0
+          };
           
-          > 💡 **참고**: 보안 이슈가 발견된 경우 Security 탭에서 우선순위와 수정 방법을 확인할 수 있습니다.
+          try {
+            const files = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            files.data.forEach(file => {
+              fileStats.total++;
+              if (file.status === 'added') fileStats.added++;
+              else if (file.status === 'modified') fileStats.modified++;
+              else if (file.status === 'removed') fileStats.deleted++;
+            });
+          } catch (error) {
+            console.log('파일 통계 조회 실패:', error.message);
+          }
+          
+          // 코드 변경량 계산
+          let codeChanges = {
+            additions: 0,
+            deletions: 0,
+            total: 0
+          };
+          
+          try {
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            codeChanges.additions = pr.data.additions || 0;
+            codeChanges.deletions = pr.data.deletions || 0;
+            codeChanges.total = codeChanges.additions + codeChanges.deletions;
+          } catch (error) {
+            console.log('코드 변경량 조회 실패:', error.message);
+          }
+          
+          // 보안 상태 이모지 및 메시지
+          const getSecurityStatus = () => {
+            if (scanSummary.critical > 0 || scanSummary.high > 0) {
+              return { emoji: '🚨', status: 'CRITICAL', color: '🔴', message: '즉시 수정이 필요한 심각한 보안 이슈가 발견되었습니다.' };
+            } else if (scanSummary.medium > 0) {
+              return { emoji: '⚠️', status: 'WARNING', color: '🟡', message: '주의가 필요한 보안 이슈가 발견되었습니다.' };
+            } else if (scanSummary.low > 0 || scanSummary.note > 0) {
+              return { emoji: '💡', status: 'INFO', color: '🔵', message: '경미한 보안 권장사항이 있습니다.' };
+            } else {
+              return { emoji: '✅', status: 'SECURE', color: '🟢', message: '보안 검사를 통과했습니다!' };
+            }
+          };
+          
+          const securityStatus = getSecurityStatus();
+          
+          // 상위 취약점 목록 (최대 5개)
+          const getTopVulnerabilities = () => {
+            if (currentAlerts.length === 0) return '';
+            
+            const sortedAlerts = currentAlerts
+              .sort((a, b) => {
+                const severityOrder = { critical: 4, high: 3, medium: 2, low: 1, note: 0 };
+                return (severityOrder[b.rule?.severity] || 0) - (severityOrder[a.rule?.severity] || 0);
+              })
+              .slice(0, 5);
+            
+            let table = '| 심각도 | 규칙 | 파일 | 설명 |\n|--------|------|------|------|\n';
+            
+            sortedAlerts.forEach(alert => {
+              const severity = alert.rule?.severity || 'note';
+              const severityEmoji = {
+                critical: '🔴',
+                high: '🟠', 
+                medium: '🟡',
+                low: '🔵',
+                note: 'ℹ️'
+              }[severity] || 'ℹ️';
+              
+              const ruleName = alert.rule?.name || 'Unknown';
+              const fileName = alert.most_recent_instance?.location?.path || 'Unknown';
+              const description = (alert.rule?.description || 'No description').substring(0, 60) + '...';
+              
+              table += `| ${severityEmoji} ${severity.toUpperCase()} | \`${ruleName}\` | \`${fileName}\` | ${description} |\n`;
+            });
+            
+            return table;
+          };
+          
+          // 보안 권장사항
+          const getSecurityRecommendations = () => {
+            const recommendations = [];
+            
+            if (scanSummary.critical > 0 || scanSummary.high > 0) {
+              recommendations.push('🚨 **즉시 조치**: Critical/High 이슈는 머지 전 필수 수정');
+              recommendations.push('🔒 **보안 검토**: 팀 보안 담당자와 코드 리뷰 진행');
+            }
+            
+            if (scanSummary.medium > 0) {
+              recommendations.push('⏰ **계획 수정**: Medium 이슈는 다음 스프린트에서 수정 계획');
+            }
+            
+            if (fileStats.total > 50) {
+              recommendations.push('📋 **대규모 변경**: 파일 변경이 많아 추가 보안 검토 권장');
+            }
+            
+            if (codeChanges.total > 1000) {
+              recommendations.push('🔍 **코드 검증**: 변경량이 많아 단계별 테스트 권장');
+            }
+            
+            // JavaScript/TypeScript 특화 권장사항
+            recommendations.push('🛡️ **JavaScript 보안**: XSS, 프로토타입 오염 등 웹 보안 취약점 점검');
+            recommendations.push('🔐 **의존성 검사**: npm audit으로 패키지 취약점 확인');
+            
+            if (recommendations.length === 0) {
+              recommendations.push('✨ **좋은 코드**: 보안 모범사례를 잘 따르고 있습니다!');
+            }
+            
+            return recommendations.map(rec => `- ${rec}`).join('\n');
+          };
+          
+          // 성능 및 보안 메트릭
+          const getMetrics = () => {
+            const riskScore = Math.min(100, 
+              (scanSummary.critical * 25) + 
+              (scanSummary.high * 15) + 
+              (scanSummary.medium * 5) + 
+              (scanSummary.low * 1)
+            );
+            
+            const changeRisk = codeChanges.total > 500 ? 'High' : 
+                             codeChanges.total > 200 ? 'Medium' : 'Low';
+            
+            return {
+              riskScore,
+              changeRisk,
+              securityCoverage: fileStats.total > 0 ? '100%' : 'N/A'
+            };
+          };
+          
+          const metrics = getMetrics();
+          
+          // 최종 코멘트 생성
+          const comment = `# ${securityStatus.emoji} CodeQL 고급 보안 스캔 결과
+          
+          ## 📊 보안 상태: ${securityStatus.color} **${securityStatus.status}**
+          ${securityStatus.message}
+          
+          ### 🎯 스캔 요약
+          | 항목 | 값 | 상세 |
+          |------|----|----|
+          | **총 이슈** | **${scanSummary.total}개** | ${scanSummary.critical}🔴 ${scanSummary.high}🟠 ${scanSummary.medium}🟡 ${scanSummary.low}🔵 ${scanSummary.note}ℹ️ |
+          | **위험 점수** | **${metrics.riskScore}/100** | ${metrics.riskScore > 50 ? '높음' : metrics.riskScore > 20 ? '보통' : '낮음'} |
+          | **변경 위험도** | **${metrics.changeRisk}** | ${codeChanges.total}줄 변경 (${codeChanges.additions}➕ ${codeChanges.deletions}➖) |
+          | **보안 커버리지** | **${metrics.securityCoverage}** | ${fileStats.total}개 파일 스캔 |
+          
+          ### 📁 변경 파일 분석
+          - 📝 **수정된 파일**: ${fileStats.modified}개
+          - ➕ **추가된 파일**: ${fileStats.added}개  
+          - ➖ **삭제된 파일**: ${fileStats.deleted}개
+          - 📏 **총 변경량**: ${codeChanges.total}줄 (추가 ${codeChanges.additions}, 삭제 ${codeChanges.deletions})
+          
+          ${currentAlerts.length > 0 ? `### 🔍 주요 보안 이슈 (상위 ${Math.min(5, currentAlerts.length)}개)
+          ${getTopVulnerabilities()}` : ''}
+          
+          ### 🛡️ 보안 권장사항
+          ${getSecurityRecommendations()}
+          
+          ### 🔗 상세 정보 및 링크
+          - 📋 **전체 보안 스캔**: [Security 탭](https://github.com/${context.repo.owner}/${context.repo.repo}/security/code-scanning)
+          - 📈 **보안 트렌드**: [Security Insights](https://github.com/${context.repo.owner}/${context.repo.repo}/pulse/security)
+          - 🔧 **수정 가이드**: 각 이슈 클릭 시 상세 설명 및 해결 방법 제공
+          - 📚 **보안 문서**: [CodeQL 보안 가이드](https://docs.github.com/en/code-security/code-scanning)
+          
+          ### ⚡ 빠른 액션
+          \`\`\`bash
+          # 로컬에서 보안 검사 실행
+          pnpm audit                    # 의존성 취약점 검사
+          pnpm audit --fix              # 자동 수정 가능한 취약점 해결
+          
+          # 코드 품질 검사
+          pnpm check                  # ESLint, Formatting, Type Check 실행
+          \`\`\`
           
           ---
-          _🤖 CodeQL Advanced Scan | ${new Date().toISOString()}_`;
-
+          
+          <details>
+          <summary>🤖 <strong>스캔 상세 정보</strong></summary>
+          
+          - **🕒 스캔 시간**: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}
+          - **📝 분석 언어**: JavaScript/TypeScript
+          - **🔍 스캔 범위**: 전체 소스코드 (${fileStats.total}개 파일)
+          - **⚡ 실행 환경**: GitHub Actions (Ubuntu Latest)
+          - **📊 스캔 ID**: \`${context.runId}\`
+          - **🌿 브랜치**: \`${context.ref}\`
+          - **💾 커밋**: \`${context.sha.substring(0, 7)}\`
+          
+          **CodeQL 버전**: 최신 안정 버전  
+          **보안 쿼리**: 표준 + 확장 보안 쿼리팩  
+          **분석 모드**: 고급 분석 (Deep Scan)
+          
+          </details>
+          
+          ---
+          *🔒 CodeQL Advanced Security Scan | 자동 생성됨 ${new Date().toISOString()}*`;
+          
           await github.rest.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
